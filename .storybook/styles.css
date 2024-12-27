@@ -1,0 +1,21 @@
+:not(:defined) {
+  opacity: 0;
+}
+
+code-bubble {
+  margin-bottom: 2rem;
+}
+
+code-bubble[code-bubble] pre[slot] {
+  margin: 0;
+}
+
+code-bubble[code-bubble] pre button {
+  display: none;
+}
+
+.docblock-source.sb-unstyled {
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+}

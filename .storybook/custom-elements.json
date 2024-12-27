@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/my-element.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "An sample element.",
+          "name": "MyElement",
+          "cssProperties": [
+            {
+              "description": "The card border color",
+              "name": "--card-border-color",
+              "default": "#ccc"
+            },
+            {
+              "description": "The card border color",
+              "name": "--card-border-size",
+              "default": "1px"
+            },
+            {
+              "description": "The card border color",
+              "name": "--card-border-style",
+              "default": "solid"
+            },
+            {
+              "description": "The card border radius",
+              "name": "--card-border-radius",
+              "default": "8px"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The button",
+              "name": "button"
+            },
+            {
+              "description": "Adds custom styles to the docs hint",
+              "name": "docs-hint"
+            }
+          ],
+          "slots": [
+            {
+              "description": "This adds content between the logo and the counter button",
+              "name": ""
+            },
+            {
+              "description": "This adds extra content into the counter button",
+              "name": "button-content"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "docsHint",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Click on the Storybook logo to learn more\"",
+              "description": "Copy for the read the docs hint.",
+              "attribute": "docs-hint",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "count",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The number of times the button has been clicked.",
+              "attribute": "count",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Adds a label to the component",
+              "attribute": "label"
+            },
+            {
+              "kind": "method",
+              "name": "increaseCount",
+              "description": "Increases the `count` by 1",
+              "privacy": "public"
+            },
+            {
+              "kind": "method",
+              "name": "decreaseCount",
+              "description": "Decreases the `count` by 1",
+              "privacy": "public",
+              "deprecated": true
+            },
+            {
+              "kind": "method",
+              "name": "setCount",
+              "description": "Sets `count` to a specified value",
+              "privacy": "public",
+              "parameters": [
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getCount",
+              "description": "Gets the current `count` value",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_onClick",
+              "privacy": "private"
+            }
+          ],
+          "events": [
+            {
+              "name": "count",
+              "type": {
+                "text": "number"
+              },
+              "description": "This is emitted every time the count button is clicked"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "docs-hint",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Click on the Storybook logo to learn more\"",
+              "description": "Copy for the read the docs hint.",
+              "fieldName": "docsHint"
+            },
+            {
+              "name": "count",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The number of times the button has been clicked.",
+              "fieldName": "count"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Adds a label to the component",
+              "fieldName": "label"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "my-element",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MyElement",
+          "declaration": {
+            "name": "MyElement",
+            "module": "src/my-element.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "my-element",
+          "declaration": {
+            "name": "MyElement",
+            "module": "src/my-element.ts"
+          }
+        }
+      ]
+    }
+  ]
+}

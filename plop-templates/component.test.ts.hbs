@@ -1,0 +1,12 @@
+import './index.js';
+import { expect, fixture, html } from '@open-wc/testing';
+import type { {{pascalCase tagName}} } from './{{kebabCase name}}.js';
+
+describe('{{pascalCase tagName}}', () => {
+  describe('accessibility', () => {
+    it('default is accessible', async () => {
+      const el = await fixture<{{pascalCase tagName}}>(html`<{{kebabCase tagName}}></{{kebabCase tagName}}>`);
+      await expect(el).to.be.accessible();
+    });
+  });
+});

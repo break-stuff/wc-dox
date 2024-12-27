@@ -1,0 +1,25 @@
+import { StoryObj } from '@storybook/web-components';
+import { getWcStorybookHelpers } from 'wc-storybook-helpers';
+import type { {{pascalCase tagName}} } from './index.js';
+
+const { args, argTypes, events, template } = getWcStorybookHelpers('{{kebabCase tagName}}');
+
+export default {
+  title: 'Components/{{pascalCase name}}',
+  component: '{{kebabCase tagName}}',
+  args,
+  argTypes,
+  parameters: {
+    actions: {
+      handles: events,
+    },
+  },
+};
+
+
+type Story = StoryObj<{{pascalCase tagName}} & typeof args>;
+
+export const Default: Story = {
+  render: args => template(args),
+  args: {}
+};
