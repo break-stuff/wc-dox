@@ -86,12 +86,11 @@ export const defaultDoxConfig: DoxConfig = {
     heading: 'Methods',
     headingId: 'methods',
     description: 'The following CSS parts are available:',
-    headings: ['Name', 'Description', 'Type', 'Deprecated'],
+    headings: ['Name', 'Description', 'Deprecated'],
     rowTemplate: method =>
       `<tr>
-        <td><p><code>${method.name}</code></p></td>
+        <td><p><code>${method.name}(${method.parameters?.map(p => `${p.name + (p.type?.text ? `: ${p.type?.text}` : '')}`).join(', ') || ''}) => ${method.return?.type?.text || 'void'}</code></p></td>
         <td>${markdownToHtml(method.description || '')}</td>
-        <td><p><code>(${method.parameters?.map(p => `${p.name + (p.type?.text ? `: ${p.type?.text}` : '')}`).join(', ') || ''}) => ${method.return?.type?.text || 'void'}</code></p></td>
         <td style="text-align: center;">${method.deprecated ? '✔️' : ''}</td>
       </tr>`,
   },
