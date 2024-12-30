@@ -39,7 +39,7 @@ Now that it's loaded, you can load the appropriate documentation by passing the 
 <wc-dox component-name="MyElement"></wc-dox>
 ```
 
-Each of the sections can also be used independently as individual components.
+The `<ach>` element should be all that you need, but if you eed more flexibility, each of the sections can also be used independently as individual components.
 
 ```html
 <!-- CSS Parts docs -->

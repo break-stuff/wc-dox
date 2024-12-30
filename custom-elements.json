@@ -181,6 +181,163 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/css-props/css-props.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A component to document the CSS custom properties of a custom element",
+          "name": "WcCssProps",
+          "members": [
+            {
+              "kind": "field",
+              "name": "config"
+            }
+          ],
+          "superclass": {
+            "name": "WcDoxBase",
+            "module": "/src/components/base/dox-base.js"
+          },
+          "tagName": "wc-css-props",
+          "customElement": true,
+          "since": {
+            "name": "1.0.0",
+            "description": ""
+          },
+          "status": {
+            "name": "experimental",
+            "description": ""
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WcCssProps",
+          "declaration": {
+            "name": "WcCssProps",
+            "module": "src/components/css-props/css-props.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WcCssProps",
+            "module": "src/components/css-props/css-props.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/events/events.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A component to document the events of a custom element",
+          "name": "WcEvents",
+          "members": [
+            {
+              "kind": "field",
+              "name": "config"
+            }
+          ],
+          "superclass": {
+            "name": "WcDoxBase",
+            "module": "/src/components/base/dox-base.js"
+          },
+          "tagName": "wc-events",
+          "customElement": true,
+          "since": {
+            "name": "1.0.0",
+            "description": ""
+          },
+          "status": {
+            "name": "experimental",
+            "description": ""
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WcEvents",
+          "declaration": {
+            "name": "WcEvents",
+            "module": "src/components/events/events.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WcEvents",
+            "module": "src/components/events/events.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/methods/methods.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A component to document the methods of a custom element",
+          "name": "WcMethods",
+          "members": [
+            {
+              "kind": "method",
+              "name": "updateMetaData",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "config"
+            }
+          ],
+          "superclass": {
+            "name": "WcDoxBase",
+            "module": "/src/components/base/dox-base.js"
+          },
+          "tagName": "wc-methods",
+          "customElement": true,
+          "since": {
+            "name": "1.0.0",
+            "description": ""
+          },
+          "status": {
+            "name": "experimental",
+            "description": ""
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WcMethods",
+          "declaration": {
+            "name": "WcMethods",
+            "module": "src/components/methods/methods.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WcMethods",
+            "module": "src/components/methods/methods.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/imports/imports.ts",
       "declarations": [
         {
@@ -301,163 +458,6 @@
           "declaration": {
             "name": "WcImports",
             "module": "src/components/imports/imports.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/methods/methods.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "A component to document the methods of a custom element",
-          "name": "WcMethods",
-          "members": [
-            {
-              "kind": "method",
-              "name": "updateMetaData",
-              "privacy": "protected",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "field",
-              "name": "config"
-            }
-          ],
-          "superclass": {
-            "name": "WcDoxBase",
-            "module": "/src/components/base/dox-base.js"
-          },
-          "tagName": "wc-methods",
-          "customElement": true,
-          "since": {
-            "name": "1.0.0",
-            "description": ""
-          },
-          "status": {
-            "name": "experimental",
-            "description": ""
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "WcMethods",
-          "declaration": {
-            "name": "WcMethods",
-            "module": "src/components/methods/methods.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WcMethods",
-            "module": "src/components/methods/methods.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/events/events.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "A component to document the events of a custom element",
-          "name": "WcEvents",
-          "members": [
-            {
-              "kind": "field",
-              "name": "config"
-            }
-          ],
-          "superclass": {
-            "name": "WcDoxBase",
-            "module": "/src/components/base/dox-base.js"
-          },
-          "tagName": "wc-events",
-          "customElement": true,
-          "since": {
-            "name": "1.0.0",
-            "description": ""
-          },
-          "status": {
-            "name": "experimental",
-            "description": ""
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "WcEvents",
-          "declaration": {
-            "name": "WcEvents",
-            "module": "src/components/events/events.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WcEvents",
-            "module": "src/components/events/events.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/css-props/css-props.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "A component to document the CSS custom properties of a custom element",
-          "name": "WcCssProps",
-          "members": [
-            {
-              "kind": "field",
-              "name": "config"
-            }
-          ],
-          "superclass": {
-            "name": "WcDoxBase",
-            "module": "/src/components/base/dox-base.js"
-          },
-          "tagName": "wc-css-props",
-          "customElement": true,
-          "since": {
-            "name": "1.0.0",
-            "description": ""
-          },
-          "status": {
-            "name": "experimental",
-            "description": ""
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "WcCssProps",
-          "declaration": {
-            "name": "WcCssProps",
-            "module": "src/components/css-props/css-props.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WcCssProps",
-            "module": "src/components/css-props/css-props.ts"
           }
         }
       ]
