@@ -53,6 +53,55 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/css-states/css-states.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A component to document the CSS custom states of a custom element",
+          "name": "WcStates",
+          "members": [
+            {
+              "kind": "field",
+              "name": "config"
+            }
+          ],
+          "superclass": {
+            "name": "WcDoxBase",
+            "module": "/src/components/base/dox-base.js"
+          },
+          "tagName": "wc-states",
+          "customElement": true,
+          "since": {
+            "name": "1.0.0",
+            "description": ""
+          },
+          "status": {
+            "name": "experimental",
+            "description": ""
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WcStates",
+          "declaration": {
+            "name": "WcStates",
+            "module": "src/components/css-states/css-states.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WcStates",
+            "module": "src/components/css-states/css-states.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/dox/dox.ts",
       "declarations": [
         {
@@ -126,104 +175,6 @@
           "declaration": {
             "name": "WcDox",
             "module": "src/components/dox/dox.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/css-props/css-props.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "A component to document the CSS custom properties of a custom element",
-          "name": "WcCssProps",
-          "members": [
-            {
-              "kind": "field",
-              "name": "config"
-            }
-          ],
-          "superclass": {
-            "name": "WcDoxBase",
-            "module": "/src/components/base/dox-base.js"
-          },
-          "tagName": "wc-css-props",
-          "customElement": true,
-          "since": {
-            "name": "1.0.0",
-            "description": ""
-          },
-          "status": {
-            "name": "experimental",
-            "description": ""
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "WcCssProps",
-          "declaration": {
-            "name": "WcCssProps",
-            "module": "src/components/css-props/css-props.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WcCssProps",
-            "module": "src/components/css-props/css-props.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/css-states/css-states.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "A component to document the CSS custom states of a custom element",
-          "name": "WcStates",
-          "members": [
-            {
-              "kind": "field",
-              "name": "config"
-            }
-          ],
-          "superclass": {
-            "name": "WcDoxBase",
-            "module": "/src/components/base/dox-base.js"
-          },
-          "tagName": "wc-states",
-          "customElement": true,
-          "since": {
-            "name": "1.0.0",
-            "description": ""
-          },
-          "status": {
-            "name": "experimental",
-            "description": ""
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "WcStates",
-          "declaration": {
-            "name": "WcStates",
-            "module": "src/components/css-states/css-states.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WcStates",
-            "module": "src/components/css-states/css-states.ts"
           }
         }
       ]
@@ -458,6 +409,55 @@
           "declaration": {
             "name": "WcEvents",
             "module": "src/components/events/events.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/css-props/css-props.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A component to document the CSS custom properties of a custom element",
+          "name": "WcCssProps",
+          "members": [
+            {
+              "kind": "field",
+              "name": "config"
+            }
+          ],
+          "superclass": {
+            "name": "WcDoxBase",
+            "module": "/src/components/base/dox-base.js"
+          },
+          "tagName": "wc-css-props",
+          "customElement": true,
+          "since": {
+            "name": "1.0.0",
+            "description": ""
+          },
+          "status": {
+            "name": "experimental",
+            "description": ""
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WcCssProps",
+          "declaration": {
+            "name": "WcCssProps",
+            "module": "src/components/css-props/css-props.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WcCssProps",
+            "module": "src/components/css-props/css-props.ts"
           }
         }
       ]

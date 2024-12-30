@@ -22,6 +22,7 @@ export default css`
 
       pre {
         overflow-x: auto;
+        overflow-y: hidden;
         display: block;
       }
     }

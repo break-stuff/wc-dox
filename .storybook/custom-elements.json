@@ -87,20 +87,16 @@
             {
               "kind": "method",
               "name": "increaseCount",
-              "description": "Increases the `count` by 1",
               "privacy": "public"
             },
             {
               "kind": "method",
               "name": "decreaseCount",
-              "description": "Decreases the `count` by 1",
-              "privacy": "public",
-              "deprecated": true
+              "privacy": "public"
             },
             {
               "kind": "method",
               "name": "setCount",
-              "description": "Sets `count` to a specified value",
               "privacy": "public",
               "parameters": [
                 {
@@ -114,7 +110,6 @@
             {
               "kind": "method",
               "name": "getCount",
-              "description": "Gets the current `count` value",
               "privacy": "public",
               "return": {
                 "type": {
@@ -163,6 +158,20 @@
               },
               "description": "Adds a label to the component",
               "fieldName": "label"
+            }
+          ],
+          "cssStates": [
+            {
+              "description": "used when the component is in a valid state",
+              "name": "success"
+            },
+            {
+              "description": "used when the component is in a invalid state",
+              "name": "invalid"
+            },
+            {
+              "description": "used when something has gone wrong in the component",
+              "name": "error"
             }
           ],
           "superclass": {
