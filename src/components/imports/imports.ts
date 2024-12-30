@@ -1,10 +1,11 @@
-import { html, LitElement } from 'lit';
+import { LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import styles from './imports.styles.js';
 import { ImportsElementConfig } from '../../configs/types.js';
 import { config } from '../../configs/index.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { markdownToHtml } from '../../utils/markdown.js';
+import { html, unsafeStatic } from 'lit/static-html.js' 
 
 let importId = 0;
 
@@ -55,18 +56,22 @@ export class WcImports extends LitElement {
   }
 
   override render() {
+    const heading = `h${config.headingLevel || 3}`;
+
     return html`
       <style>
         ${styles}
       </style>
       <div class="imports">
-        <h3 id="imports-${importId}" class="heading">
+        <${unsafeStatic(heading)} class="heading">
           ${this.config?.heading}
           <a href="#${this.config?.headingId}" class="skip-link">#</a>
-        </h3>
-        ${this.config?.description
-          ? unsafeHTML(markdownToHtml(this.config.description))
-          : ''}
+        </${unsafeStatic(heading)}>
+        ${
+          this.config?.description
+            ? unsafeHTML(markdownToHtml(this.config.description))
+            : ''
+        }
         <div
           role="tablist"
           aria-labelledby="imports-${importId}"
