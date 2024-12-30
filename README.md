@@ -4,6 +4,14 @@ The `wc-dox` package and it's components are designed to be a way to quickly and
 
 > If you're not already generating a Custom Elements Manifest, [here is a list of options](https://dev.to/stuffbreaker/you-should-be-shipping-a-manifest-with-your-web-components-2da0) you can use to generate one.
 
+![demo of documentation output](https://github.com/break-stuff/wc-dox/blob/main/assets/demo.gif?raw=true)
+
+<div align="center">
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/github-tdtmrsak-3eijkyac?file=src%2Fmy-element.mdx)
+
+</div>
+
 ## Installation
 
 ```bash
@@ -99,9 +107,9 @@ type DoxConfig = {
 };
 ```
 
-### headingLevel
+### Heading Level
 
-This setting controls the heading level for the sections of the API sections.
+The `headingLevel` setting controls the heading level for each of the sections of the API sections.
 
 ### Dox Element Config
 

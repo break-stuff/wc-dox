@@ -1,6 +1,6 @@
 {
   "name": "wc-dox",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "A web component API documentation generator",
   "main": "index.js",
   "types": "index.d.ts",
