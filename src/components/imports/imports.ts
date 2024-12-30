@@ -9,10 +9,10 @@ import { markdownToHtml } from '../../utils/markdown.js';
 let importId = 0;
 
 /**
- * Add a description here
+ * A component to document the ways to import a custom element
  *
  * @tag wc-imports
- * @since 0.0.0
+ * @since 1.0.0
  * @status experimental
  *
  * @cssprop [--wc-imports-border-color=#e0e0e0] - Controls the color of the divider between the tabs and tab content

@@ -5,10 +5,10 @@ import WcDoxBase from '../base/dox-base.js';
 import { config } from '../../configs/index.js';
 
 /**
- * This component provides a list of the component's events and their status
+ * A component to document the events of a custom element
  *
  * @tag wc-events
- * @since 0.0.0
+ * @since 1.0.0
  * @status experimental
  *
  **/

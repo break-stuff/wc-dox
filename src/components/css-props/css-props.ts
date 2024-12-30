@@ -4,10 +4,10 @@ import * as schema from 'custom-elements-manifest/schema';
 import WcDoxBase from '../base/dox-base.js';
 
 /**
- * Add a description here
+ * A component to document the CSS custom properties of a custom element
  *
  * @tag wc-css-props
- * @since 0.0.0
+ * @since 1.0.0
  * @status experimental
  *
  **/

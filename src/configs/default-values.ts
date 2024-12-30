@@ -3,6 +3,7 @@ import { markdownToHtml } from '../utils/markdown.js';
 
 export const defaultDoxConfig: DoxConfig = {
   hideOnEmpty: true,
+  headingLevel: 3,
   dox: {
     apiOrder: [
       'imports',
@@ -12,7 +13,7 @@ export const defaultDoxConfig: DoxConfig = {
       'events',
       'css-props',
       'css-parts',
-      'states',
+      'css-states',
     ],
   },
   imports: {
@@ -43,7 +44,8 @@ export const defaultDoxConfig: DoxConfig = {
   cssParts: {
     heading: 'CSS Parts',
     headingId: 'css-parts',
-    description: 'The following [CSS shadow parts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts) are available to customize the component:',
+    description:
+      'The following [CSS shadow parts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts) are available to customize the component:',
     headings: ['Name', 'Description', 'Deprecated'],
     rowTemplate: cssPart =>
       `<tr>
@@ -55,7 +57,8 @@ export const defaultDoxConfig: DoxConfig = {
   cssProps: {
     heading: 'CSS Custom Properties',
     headingId: 'css-props',
-    description: 'You can use [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to customize the look and feel of the component using the following properties:',
+    description:
+      'You can use [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to customize the look and feel of the component using the following properties:',
     headings: ['Name', 'Default', 'Description', 'Deprecated'],
     rowTemplate: cssVar =>
       `<tr>
@@ -68,7 +71,8 @@ export const defaultDoxConfig: DoxConfig = {
   events: {
     heading: 'Events',
     headingId: 'events',
-    description: 'The following [events](https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events) are emitted by the component:',
+    description:
+      'The following [events](https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events) are emitted by the component:',
     headings: ['Name', 'Type', 'Description', 'Deprecated'],
     rowTemplate: event =>
       `<tr>
@@ -127,10 +131,11 @@ export const defaultDoxConfig: DoxConfig = {
         <td style="text-align: center;">${slot.deprecated ? '✔️' : ''}</td>
       </tr>`,
   },
-  states: {
+  cssStates: {
     heading: 'CSS States',
     headingId: 'css-states',
-    description: 'The following [CSS states](https://developer.mozilla.org/en-US/docs/Web/CSS/:state) can be used to customize component styles:',
+    description:
+      'The following [CSS states](https://developer.mozilla.org/en-US/docs/Web/CSS/:state) can be used to customize component styles:',
     headings: ['Name', 'Description', 'Deprecated'],
     rowTemplate: state =>
       `<tr>

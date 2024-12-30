@@ -1,4 +1,5 @@
-import { CSSResult, html, LitElement } from 'lit';
+import { CSSResult, LitElement } from 'lit';
+import { html, unsafeStatic } from 'lit/static-html.js' 
 import { property, state } from 'lit/decorators.js';
 import { BaseElementConfig, manifest } from '../../configs/index.js';
 import * as schema from 'custom-elements-manifest/schema';
@@ -39,6 +40,7 @@ export class WcDoxBase<
   }
 
   protected getRenderTemplate(styles: CSSResult, className: string) {
+    const heading = `h${config.headingLevel || 3}`
     return html`
       <style>
         ${this.tagName.toLowerCase()} {
@@ -61,10 +63,10 @@ export class WcDoxBase<
         ${styles}
       </style>
       <div class="${className}">
-        <h3 class="heading">
+        <${unsafeStatic(heading)} class="heading">
           ${this.config?.heading}
           <a href="#${this.config?.headingId}" class="skip-link">#</a>
-        </h3>
+        </${unsafeStatic(heading)}>
         ${this.config?.description
           ? unsafeHTML(markdownToHtml(this.config.description))
           : ''}

@@ -5,10 +5,10 @@ import WcDoxBase from '../base/dox-base.js';
 
 
 /**
- * Add a description here
+ * A component to document the slots of a custom element
  *
  * @tag wc-slots
- * @since 0.0.0
+ * @since 1.0.0
  * @status experimental
  *
  **/

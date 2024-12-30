@@ -5,10 +5,10 @@ import WcDoxBase from '../base/dox-base.js';
 import { getComponent, getComponentProperties } from '../../utils/cem-tools.js';
 
 /**
- * Add a description here
+ * A component to document the attributes and properties of a custom element
  *
  * @tag wc-props
- * @since 0.0.0
+ * @since 1.0.0
  * @status experimental
  *
  **/

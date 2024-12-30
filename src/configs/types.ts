@@ -1,9 +1,10 @@
-import * as schema from 'custom-elements-manifest/schema';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import * as cem from 'custom-elements-manifest/schema';
 
 export type DoxConfig = {
   /** Hides a section of the documentation if it has no content */
   hideOnEmpty?: boolean;
-  /** Configures the heading level for the API sections */
+  /** Configures the heading level for the API sections - default is 3 */
   headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   /** Configures the `wc-dox` component contents */
   dox?: DoxElementConfig;
@@ -22,11 +23,11 @@ export type DoxConfig = {
   /** Configures the `wc-slots` component contents */
   slots?: SlotsElementConfig;
   /** Configures the `wc-states` component contents */
-  states?: StatesElementConfig;
+  cssStates?: CssStatesElementConfig;
 };
 
 export type DoxElementConfig = {
-  /** Controls the order in which the API documentation is displayed */
+  /** Controls the order in which the API documentation sections are displayed */
   apiOrder?: Array<
     | 'imports'
     | 'props'
@@ -35,7 +36,7 @@ export type DoxElementConfig = {
     | 'events'
     | 'css-props'
     | 'css-parts'
-    | 'states'
+    | 'css-states'
   >;
 };
 
@@ -80,20 +81,20 @@ export type BaseElementConfig<T> = {
 };
 
 
-export type CssPart = schema.CssPart;
-export type CssProp = schema.CssCustomProperty;
-export type Event = schema.Event;
-export type Method = schema.ClassMethod;
-export type Property = schema.CustomElementField;
-export type Slot = schema.Slot;
-export type State = schema.CssCustomState;
+export type CssPart = cem.CssPart & Record<string, any>;
+export type CssProp = cem.CssCustomProperty & Record<string, any>;
+export type Event = cem.Event & Record<string, any>;
+export type Method = cem.ClassMethod & Record<string, any>;
+export type Property = cem.CustomElementField & Record<string, any>;
+export type Slot = cem.Slot & Record<string, any>;
+export type CssState = cem.CssCustomState & Record<string, any>;
 
-export type CssPartsElementConfig = BaseElementConfig<CssPart> & {};
+export type CssPartsElementConfig = BaseElementConfig<CssPart>;
 export type CssPropsElementConfig =
-  BaseElementConfig<CssProp> & {};
-export type EventsElementConfig = BaseElementConfig<Event> & {};
-export type MethodsElementConfig = BaseElementConfig<Method> & {};
+  BaseElementConfig<CssProp>;
+export type EventsElementConfig = BaseElementConfig<Event>;
+export type MethodsElementConfig = BaseElementConfig<Method>;
 export type PropsElementConfig =
-  BaseElementConfig<Property> & {};
-export type SlotsElementConfig = BaseElementConfig<Slot> & {};
-export type StatesElementConfig = BaseElementConfig<State> & {};
+  BaseElementConfig<Property>;
+export type SlotsElementConfig = BaseElementConfig<Slot>;
+export type CssStatesElementConfig = BaseElementConfig<CssState>;

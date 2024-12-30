@@ -5,10 +5,10 @@ import WcDoxBase from '../base/dox-base.js';
 import { getComponent, getComponentMethods } from '../../utils/cem-tools.js';
 
 /**
- * Add a description here
+ * A component to document the methods of a custom element
  *
  * @tag wc-methods
- * @since 0.0.0
+ * @since 1.0.0
  * @status experimental
  *
  **/
