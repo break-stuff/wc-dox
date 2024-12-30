@@ -1,6 +1,6 @@
 import './index.js';
 import { expect, fixture, html } from '@open-wc/testing';
-import type { WcStates } from './states.js';
+import type { WcStates } from './css-states.js';
 
 describe('WcStates', () => {
   describe('accessibility', () => {

@@ -1,6 +1,6 @@
 import { StoryObj } from '@storybook/web-components';
 import { getWcStorybookHelpers } from 'wc-storybook-helpers';
-import { WcStates } from './states.js';
+import { WcStates } from './css-states.js';
 
 const { args, argTypes, events, template } = getWcStorybookHelpers('wc-states');
 

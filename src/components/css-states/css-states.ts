@@ -1,5 +1,5 @@
-import styles from './states.styles.js';
-import { config, StatesElementConfig } from '../../configs/index.js';
+import styles from './css-states.styles.js';
+import { config, CssStatesElementConfig } from '../../configs/index.js';
 import * as schema from 'custom-elements-manifest/schema';
 import WcDoxBase from '../base/dox-base.js';
 
@@ -12,12 +12,12 @@ import WcDoxBase from '../base/dox-base.js';
  *
  **/
 export class WcStates extends WcDoxBase<
-StatesElementConfig,
+CssStatesElementConfig,
   schema.CssCustomState
 > {
   public constructor() {
     super();
-    this.config = config.states;
+    this.config = config.cssStates;
   }
 
   override connectedCallback(): void {
