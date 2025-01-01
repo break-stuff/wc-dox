@@ -1,10 +1,11 @@
 import { CSSResult, LitElement } from 'lit';
-import { html, unsafeStatic } from 'lit/static-html.js' 
+import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, state } from 'lit/decorators.js';
 import { BaseElementConfig, manifest } from '../../configs/index.js';
-import * as schema from 'custom-elements-manifest/schema';
+import * as cem from 'custom-elements-manifest/schema';
 import { getComponent } from '../../utils/cem-tools.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { markdownToHtml } from '../../utils/markdown.js';
 import { config } from '../../configs/index.js';
 
@@ -30,7 +31,7 @@ export class WcDoxBase<
   @state()
   protected metaData?: MetaData[];
 
-  protected updateMetaData(feature: keyof schema.CustomElement): void {
+  protected updateMetaData(feature: keyof cem.CustomElement): void {
     const component = getComponent(manifest, this.componentName, this.tag);
     this.metaData = component?.[feature] as MetaData[];
 
@@ -40,7 +41,7 @@ export class WcDoxBase<
   }
 
   protected getRenderTemplate(styles: CSSResult, className: string) {
-    const heading = `h${config.headingLevel || 3}`
+    const heading = `h${config.headingLevel || 3}`;
     return html`
       <style>
         ${this.tagName.toLowerCase()} {
@@ -65,11 +66,13 @@ export class WcDoxBase<
       <div class="${className}">
         <${unsafeStatic(heading)} class="heading">
           ${this.config?.heading}
-          <a href="#${this.config?.headingId}" class="skip-link">#</a>
+          <a href="#${this.config?.headingId}" class="skip-link" aria-label="${ifDefined(this.config?.skipLinkLabel)}">#</a>
         </${unsafeStatic(heading)}>
-        ${this.config?.description
-          ? unsafeHTML(markdownToHtml(this.config.description))
-          : ''}
+        ${
+          this.config?.description
+            ? unsafeHTML(markdownToHtml(this.config.description))
+            : ''
+        }
         <div class="table-wrapper">
           <table>
             <thead>

@@ -47,6 +47,14 @@ export type ImportsElementConfig = {
   headingId?: string;
   /** The description for the imports section */
   description?: string;
+  /** The copy button icon */
+  copyIcon?: string;
+  /** The copy button label */
+  copyLabel?: string;
+  /** The icon displayed when the content is copied */
+  copiedIcon?: string;
+  /** The label used when the content is copied */
+  copiedLabel?: string;
   /** The list of import options */
   imports?: ImportConfig[];
 };
@@ -72,6 +80,8 @@ export type BaseElementConfig<T> = {
   heading?: string;
   /** The ID used for the skip-link */
   headingId?: string;
+  /** The label used for the skip-link */
+  skipLinkLabel?: string;
   /** The description for the section */
   headings?: string[];
   /** The description for the section */

@@ -1,4 +1,4 @@
-import type * as schema from 'custom-elements-manifest';
+import type * as cem from 'custom-elements-manifest';
 
 /**
  * Gets a list of components from a CEM object
@@ -7,7 +7,7 @@ import type * as schema from 'custom-elements-manifest';
  * @returns Component[]
  */
 export function getComponent(
-  customElementsManifest: schema.Package,
+  customElementsManifest: cem.cem,
   className?: string,
   tagName?: string,
 ) {
@@ -16,11 +16,11 @@ export function getComponent(
       mod =>
         mod?.declarations?.find(
           dec =>
-            ((dec as schema.CustomElement).name === className ||
-              (dec as schema.CustomElement).tagName === tagName),
+            ((dec as cem.CustomElement).name === className ||
+              (dec as cem.CustomElement).tagName === tagName),
         ),
     )
-  )[0] as schema.CustomElement;
+  )[0] as cem.CustomElement;
 }
 
 /**
@@ -28,7 +28,7 @@ export function getComponent(
  * @param component CEM component/declaration object
  * @returns an array of public properties for a given component
  */
-export function getComponentProperties(component: schema.CustomElement) {
+export function getComponentProperties(component: cem.CustomElement) {
   return component.members?.filter(
     member =>
       member.kind === 'field' &&
@@ -36,7 +36,7 @@ export function getComponentProperties(component: schema.CustomElement) {
       member.privacy !== 'protected' &&
       !member.static &&
       !member.name.startsWith('#'),
-  ) as schema.ClassMember[];
+  ) as cem.ClassMember[];
 }
 
 /**
@@ -45,15 +45,15 @@ export function getComponentProperties(component: schema.CustomElement) {
  * @returns ClassMethod[]
  */
 export function getComponentMethods(
-  component: schema.CustomElement,
-): schema.ClassMethod[] {
+  component: cem.CustomElement,
+): cem.ClassMethod[] {
   return component.members?.filter(
     member =>
       member.kind === 'method' &&
       member.privacy !== 'private' &&
       member.privacy !== 'protected' &&
       !member.name.startsWith('#'),
-  ) as schema.ClassMethod[];
+  ) as cem.ClassMethod[];
 }
 
 /**
@@ -62,7 +62,7 @@ export function getComponentMethods(
  * @param excludedTypes Any types you want to exclude from the list
  * @returns A string array of event types for a given component
  */
-export function getCustomEventTypes(component: schema.CustomElement) {
+export function getCustomEventTypes(component: cem.CustomElement) {
   const types = component.events
     ?.map(e => {
       const eventType = e.type?.text

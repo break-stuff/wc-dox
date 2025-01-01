@@ -1,6 +1,6 @@
 import styles from './css-states.styles.js';
 import { config, CssStatesElementConfig } from '../../configs/index.js';
-import * as schema from 'custom-elements-manifest/schema';
+import * as cem from 'custom-elements-manifest/schema';
 import WcDoxBase from '../base/dox-base.js';
 
 /**
@@ -13,7 +13,7 @@ import WcDoxBase from '../base/dox-base.js';
  **/
 export class WcStates extends WcDoxBase<
 CssStatesElementConfig,
-  schema.CssCustomState
+  cem.CssCustomState
 > {
   public constructor() {
     super();

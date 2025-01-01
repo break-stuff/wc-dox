@@ -16,6 +16,8 @@ export default css`
     }
 
     .tabpanel {
+      position: relative;
+
       code {
         display: block;
       }
@@ -24,6 +26,21 @@ export default css`
         overflow-x: auto;
         overflow-y: hidden;
         display: block;
+      }
+
+      .copy-button {
+        padding: 0.25rem;
+        line-height: 1;
+        display: inline-flex;
+        position: absolute;
+        right: 0.25rem;
+        top: 0.25rem;
+
+        svg {
+          fill: currentColor;
+          width: 1em;
+          height: 1em;
+        }
       }
     }
 

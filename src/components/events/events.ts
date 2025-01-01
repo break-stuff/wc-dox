@@ -1,6 +1,6 @@
 import styles from './events.styles.js';
 import { EventsElementConfig } from '../../configs/types.js';
-import * as schema from 'custom-elements-manifest/schema';
+import * as cem from 'custom-elements-manifest/schema';
 import WcDoxBase from '../base/dox-base.js';
 import { config } from '../../configs/index.js';
 
@@ -14,7 +14,7 @@ import { config } from '../../configs/index.js';
  **/
 export class WcEvents extends WcDoxBase<
   EventsElementConfig,
-  schema.Event
+  cem.Event
 > {
   public constructor() {
     super();

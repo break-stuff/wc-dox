@@ -4,8 +4,9 @@ import styles from './imports.styles.js';
 import { ImportsElementConfig } from '../../configs/types.js';
 import { config } from '../../configs/index.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import { markdownToHtml } from '../../utils/markdown.js';
-import { html, unsafeStatic } from 'lit/static-html.js' 
+import { html, unsafeStatic } from 'lit/static-html.js';
 
 let importId = 0;
 
@@ -46,6 +47,9 @@ export class WcImports extends LitElement {
   @state()
   private selectedImport = 0;
 
+  @state()
+  copied = false;
+
   public constructor() {
     super();
     this.config = config.imports;
@@ -53,6 +57,15 @@ export class WcImports extends LitElement {
 
   private handleTabClick(i: number) {
     this.selectedImport = i;
+  }
+
+  private handleCopyClick(content: string) {
+    this.copied = true;
+    navigator.clipboard.writeText(content);
+
+    setTimeout(() => {
+      this.copied = false;
+    }, 2000);
   }
 
   override render() {
@@ -93,23 +106,34 @@ export class WcImports extends LitElement {
           )}
         </div>
 
-        ${this.config?.imports?.map(
-          (x, i) =>
-            html`<div
-              id="tabpanel-${importId}${i}"
-              class="tabpanel"
-              role="tabpanel"
-              aria-labelledby="tab-${importId}-${i}"
-              ?hidden="${this.selectedImport !== i}"
+        ${this.config?.imports?.map((x, i) => {
+          const content =
+            x.importTemplate?.(this.tag ?? '', this.componentClass ?? '') || '';
+          return html`<div
+            id="tabpanel-${importId}${i}"
+            class="tabpanel"
+            role="tabpanel"
+            aria-labelledby="tab-${importId}-${i}"
+            ?hidden="${this.selectedImport !== i}"
+          >
+            <pre>
+              <code class="language-${x.lang}">${content}</code>
+            </pre>
+            <button
+              class="copy-button"
+              aria-label="${(this.copied
+                ? this.config?.copiedLabel
+                : this.config?.copyLabel) || ''}"
+              @click=${() => this.handleCopyClick(content)}
             >
-              <pre>
-                  <code class="language-${x.lang}">${x.importTemplate?.(
-                this.tag ?? '',
-                this.componentClass ?? '',
-              ) || ''}</code>
-                </pre>
-            </div>`,
-        )}
+              ${unsafeSVG(
+                (this.copied
+                  ? this.config?.copiedIcon
+                  : this.config?.copyIcon) || '',
+              )}
+            </button>
+          </div>`;
+        })}
       </div>
     `;
   }

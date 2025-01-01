@@ -1,6 +1,6 @@
 import { CssPartsElementConfig } from '../../configs/types.js';
 import { config } from '../../configs/index.js';
-import * as schema from 'custom-elements-manifest/schema';
+import * as cem from 'custom-elements-manifest/schema';
 import { WcDoxBase } from '../base/dox-base.js';
 import styles from './css-parts.styles.js';
 
@@ -12,7 +12,7 @@ import styles from './css-parts.styles.js';
  * @status experimental
  *
  **/
-export class WcCssParts extends WcDoxBase<CssPartsElementConfig, schema.CssPart> {
+export class WcCssParts extends WcDoxBase<CssPartsElementConfig, cem.CssPart> {
   public constructor() {
     super();
     this.config = config.cssParts;

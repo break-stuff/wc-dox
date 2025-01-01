@@ -1,6 +1,6 @@
 import styles from './props.styles.js';
 import { config, manifest, PropsElementConfig } from '../../configs/index.js';
-import * as schema from 'custom-elements-manifest/schema';
+import * as cem from 'custom-elements-manifest/schema';
 import WcDoxBase from '../base/dox-base.js';
 import { getComponent, getComponentProperties } from '../../utils/cem-tools.js';
 
@@ -14,7 +14,7 @@ import { getComponent, getComponentProperties } from '../../utils/cem-tools.js';
  **/
 export class WcProps extends WcDoxBase<
   PropsElementConfig,
-  schema.CustomElementField
+  cem.CustomElementField
 > {
   public constructor() {
     super();
@@ -30,7 +30,7 @@ export class WcProps extends WcDoxBase<
     if (!this.metaData) {
       const component = getComponent(manifest, this.componentName, this.tag);
       const methods = getComponentProperties(component);
-      this.metaData = methods as schema.CustomElementField[];
+      this.metaData = methods as cem.CustomElementField[];
     }
   }
 

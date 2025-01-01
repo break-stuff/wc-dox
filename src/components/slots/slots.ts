@@ -1,6 +1,6 @@
 import styles from './slots.styles.js';
 import { config, CssPropsElementConfig } from '../../configs/index.js';
-import * as schema from 'custom-elements-manifest/schema';
+import * as cem from 'custom-elements-manifest/schema';
 import WcDoxBase from '../base/dox-base.js';
 
 
@@ -14,7 +14,7 @@ import WcDoxBase from '../base/dox-base.js';
  **/
 export class WcSlots extends WcDoxBase<
   CssPropsElementConfig,
-  schema.CssCustomProperty
+  cem.CssCustomProperty
 > {
   public constructor() {
     super();

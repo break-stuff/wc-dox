@@ -1,6 +1,6 @@
 import styles from './methods.styles.js';
 import { config, manifest, MethodsElementConfig } from '../../configs/index.js';
-import * as schema from 'custom-elements-manifest/schema';
+import * as cem from 'custom-elements-manifest/schema';
 import WcDoxBase from '../base/dox-base.js';
 import { getComponent, getComponentMethods } from '../../utils/cem-tools.js';
 
@@ -14,7 +14,7 @@ import { getComponent, getComponentMethods } from '../../utils/cem-tools.js';
  **/
 export class WcMethods extends WcDoxBase<
   MethodsElementConfig,
-  schema.ClassMethod
+  cem.ClassMethod
 > {
   public constructor() {
     super();
@@ -30,7 +30,7 @@ export class WcMethods extends WcDoxBase<
     if (!this.metaData) {
       const component = getComponent(manifest, this.componentName, this.tag);
       const methods = getComponentMethods(component);
-      this.metaData = methods as schema.ClassMethod[];
+      this.metaData = methods as cem.ClassMethod[];
     }
   }
 
