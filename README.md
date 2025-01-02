@@ -52,7 +52,7 @@ The `<wc-dox>` element should be all that you need, but if you eed more flexibil
 <wc-css-parts tag="my-element"></wc-css-parts>
 
 <!-- CSS Custom Properties docs -->
-<wc-props tag="my-element"></wc-props>
+<wc-css-props tag="my-element"></wc-css-props>
 
 <!-- Events docs -->
 <wc-events tag="my-element"></wc-events>
