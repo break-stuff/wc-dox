@@ -54,6 +54,9 @@ The `<wc-dox>` element should be all that you need, but if you eed more flexibil
 <!-- CSS Custom Properties docs -->
 <wc-css-props tag="my-element"></wc-css-props>
 
+<!-- CSS Custom States docs -->
+<wc-css-states tag="my-element"></wc-css-states>
+
 <!-- Events docs -->
 <wc-events tag="my-element"></wc-events>
 
@@ -68,9 +71,6 @@ The `<wc-dox>` element should be all that you need, but if you eed more flexibil
 
 <!-- Slots docs -->
 <wc-slots tag="my-element"></wc-slots>
-
-<!-- CSS Custom States docs -->
-<wc-css-states tag="my-element"></wc-css-states>
 ```
 
 ## Configuration
