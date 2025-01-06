@@ -115,6 +115,7 @@ export class WcImports extends LitElement {
         ${this.config?.imports?.map((x, i) => {
           const content =
             x.importTemplate?.(this.component?.tagName ?? '', this.component?.name ?? '') || '';
+          const lang = `language-${x.lang}`;
           return html`<div
             id="tabpanel-${importId}${i}"
             class="tabpanel"
@@ -122,8 +123,8 @@ export class WcImports extends LitElement {
             aria-labelledby="tab-${importId}-${i}"
             ?hidden="${this.selectedImport !== i}"
           >
-            <pre>
-              <code class="language-${x.lang}">${content}</code>
+            <pre class="${this.config?.langOnPreTag ? lang : ''}">
+              <code class="${!this.config?.langOnPreTag ? lang : ''}">${content}</code>
             </pre>
             <button
               class="copy-button"

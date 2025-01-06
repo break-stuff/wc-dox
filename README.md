@@ -161,6 +161,8 @@ type ImportsElementConfig = {
   copiedIcon?: string;
   /** The label used when the content is copied */
   copiedLabel?: string;
+  /** Sets the language class on `pre` tag instead of `code` tag */
+  langOnPreTag?: boolean;
   /** The list of import options */
   imports?: ImportConfig[];
 };

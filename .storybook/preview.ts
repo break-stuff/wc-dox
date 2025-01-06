@@ -13,6 +13,7 @@ setWcStorybookHelpersConfig({ typeRef: 'expandedType' });
 setCustomElementsManifest(customElements);
 setWcDoxConfig(manifest, {
   imports: {
+    langOnPreTag: true,
     imports: [
       {
         label: 'HTML',
