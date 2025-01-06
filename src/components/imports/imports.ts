@@ -2,11 +2,13 @@ import { LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import styles from './imports.styles.js';
 import { ImportsElementConfig } from '../../configs/types.js';
-import { config } from '../../configs/index.js';
+import { config, manifest } from '../../configs/index.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import { markdownToHtml } from '../../utils/markdown.js';
 import { html, unsafeStatic } from 'lit/static-html.js';
+import * as cem from 'custom-elements-manifest/schema';
+import { getComponent } from '../../utils/cem-tools.js';
 
 let importId = 0;
 
@@ -26,15 +28,6 @@ export class WcImports extends LitElement {
     return this;
   }
 
-  override connectedCallback() {
-    super.connectedCallback();
-    importId++;
-
-    if (config.hideOnEmpty && !this.config?.imports?.length) {
-      this.hidden = true;
-    }
-  }
-
   @property()
   tag?: string;
 
@@ -50,9 +43,22 @@ export class WcImports extends LitElement {
   @state()
   copied = false;
 
+  @state()
+  component?: cem.CustomElement;
+
   public constructor() {
     super();
     this.config = config.imports;
+  }
+
+  override connectedCallback() {
+    super.connectedCallback();
+    this.component = getComponent(manifest, this.componentClass, this.tag);
+    importId++;
+
+    if (config.hideOnEmpty && !this.config?.imports?.length) {
+      this.hidden = true;
+    }
   }
 
   private handleTabClick(i: number) {
@@ -108,7 +114,7 @@ export class WcImports extends LitElement {
 
         ${this.config?.imports?.map((x, i) => {
           const content =
-            x.importTemplate?.(this.tag ?? '', this.componentClass ?? '') || '';
+            x.importTemplate?.(this.component?.tagName ?? '', this.component?.name ?? '') || '';
           return html`<div
             id="tabpanel-${importId}${i}"
             class="tabpanel"
