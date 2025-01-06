@@ -11,16 +11,13 @@ export function getComponent(
   className?: string,
   tagName?: string,
 ) {
-  return (
-    customElementsManifest.modules?.map(
-      mod =>
-        mod?.declarations?.find(
-          dec =>
-            ((dec as cem.CustomElement).name === className ||
-              (dec as cem.CustomElement).tagName === tagName),
-        ),
-    )
-  )[0] as cem.CustomElement;
+  return (customElementsManifest.modules?.map(mod =>
+    mod?.declarations?.find(
+      dec =>
+        (dec as cem.CustomElement).name === className ||
+        (dec as cem.CustomElement).tagName === tagName,
+    ),
+  ))?.find(e => e !== undefined) as cem.CustomElement;
 }
 
 /**
@@ -29,14 +26,14 @@ export function getComponent(
  * @returns an array of public properties for a given component
  */
 export function getComponentProperties(component: cem.CustomElement) {
-  return component.members?.filter(
+  return (component?.members?.filter(
     member =>
       member.kind === 'field' &&
       member.privacy !== 'private' &&
       member.privacy !== 'protected' &&
       !member.static &&
       !member.name.startsWith('#'),
-  ) as cem.ClassMember[];
+  ) || []) as cem.ClassMember[];
 }
 
 /**
@@ -47,13 +44,13 @@ export function getComponentProperties(component: cem.CustomElement) {
 export function getComponentMethods(
   component: cem.CustomElement,
 ): cem.ClassMethod[] {
-  return component.members?.filter(
+  return (component?.members?.filter(
     member =>
       member.kind === 'method' &&
       member.privacy !== 'private' &&
       member.privacy !== 'protected' &&
       !member.name.startsWith('#'),
-  ) as cem.ClassMethod[];
+  ) || []) as cem.ClassMethod[];
 }
 
 /**
@@ -63,20 +60,21 @@ export function getComponentMethods(
  * @returns A string array of event types for a given component
  */
 export function getCustomEventTypes(component: cem.CustomElement) {
-  const types = component.events
-    ?.map(e => {
-      const eventType = e.type?.text
-        .replace('[]', '')
-        .replace(' | undefined', '');
-      return eventType &&
-        !eventType.includes('<') &&
-        !eventType.includes(`{`) &&
-        !eventType.includes("'") &&
-        !eventType.includes(`"`)
-        ? eventType
-        : undefined;
-    })
-    .filter(e => e !== undefined && !e?.startsWith('HTML'));
+  const types =
+    component?.events
+      ?.map(e => {
+        const eventType = e.type?.text
+          .replace('[]', '')
+          .replace(' | undefined', '');
+        return eventType &&
+          !eventType.includes('<') &&
+          !eventType.includes(`{`) &&
+          !eventType.includes("'") &&
+          !eventType.includes(`"`)
+          ? eventType
+          : undefined;
+      })
+      ?.filter(e => e !== undefined && !e?.startsWith('HTML')) || [];
 
   return types?.length ? [...new Set(types)].join(', ') : undefined;
 }

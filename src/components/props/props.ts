@@ -32,6 +32,8 @@ export class WcProps extends WcDoxBase<
       const methods = getComponentProperties(component);
       this.metaData = methods as cem.CustomElementField[];
     }
+
+    this.updateVisibility();
   }
 
   override render() {

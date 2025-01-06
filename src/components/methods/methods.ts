@@ -32,6 +32,8 @@ export class WcMethods extends WcDoxBase<
       const methods = getComponentMethods(component);
       this.metaData = methods as cem.ClassMethod[];
     }
+    
+    this.updateVisibility();
   }
 
   override render() {

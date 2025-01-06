@@ -35,6 +35,10 @@ export class WcDoxBase<
     const component = getComponent(manifest, this.componentName, this.tag);
     this.metaData = component?.[feature] as MetaData[];
 
+    this.updateVisibility();
+  }
+
+  protected updateVisibility(): void {
     if (config.hideOnEmpty && !this.metaData?.length) {
       this.hidden = true;
     }
