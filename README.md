@@ -202,7 +202,7 @@ imports: {
       label: 'HTML',
       lang: 'html',
       importTemplate: (tagName, className) =>
-        `<script type="module" src="https://cdn.jsdelivr.net/npm/my-library/dist/${tagName}/${className}.js"></script>`,
+        `<script type="module" src="https://cdn.jsdelivr.net/npm/my-library/dist/${tagName}/${className}.js"><\/script>`,
     },
     {
       label: 'NPM',
