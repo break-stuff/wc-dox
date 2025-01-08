@@ -339,7 +339,7 @@ methods: {
   heading: 'Methods',
   headingId: 'methods',
   skipLinkLabel: 'Skip to methods',
-  description: 'The following CSS parts are available:',
+  description: 'The following Methods are available:',
   headings: ['Name', 'Description', 'Deprecated'],
   rowTemplate: method =>
     `<tr>
