@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1
+
+- Fixed type-o in README.md
+- Fixed type-o in default values
+
 ## 1.1.0
 
 - Added `langOnPreTag` setting to `imports` to set the language class on the `pre` element instead of the `code` element
