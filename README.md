@@ -341,12 +341,16 @@ methods: {
   skipLinkLabel: 'Skip to methods',
   description: 'The following Methods are available:',
   headings: ['Name', 'Description', 'Deprecated'],
-  rowTemplate: method =>
-    `<tr>
-      <td><p><code>${method.name}(${method.parameters?.map(p => `${p.name + (p.type?.text ? `: ${p.type?.text}` : '')}`).join(', ') || ''}) => ${method.return?.type?.text || 'void'}</code></p></td>
+  rowTemplate: method => {
+    const getParameter = (p: Parameter) => p.name + getParamType(p) + getParamDefaultValue(p);
+    const getParamType = (p: Parameter) => p.type?.text ? `${p.optional ? '?' : ''}: ${p.type?.text}` : '';
+    const getParamDefaultValue = (p: Parameter) => p.default ? ` = ${p.default}` : '';
+    return `<tr>
+      <td><p><code>${method.name}(${method.parameters?.map(p => getParameter(p)).join(', ') || ''}) => ${method.return?.type?.text || 'void'}</code></p></td>
       <td>${markdownToHtml(method.description || '')}</td>
       <td style="text-align: center;">${method.deprecated ? '✔️' : ''}</td>
-    </tr>`,
+    </tr>`;
+  }
 },
 ```
 

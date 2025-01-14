@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0
+
+- Added templating for optional parameters and default values for methods
+
 ## 1.1.1
 
 - Fixed type-o in README.md
