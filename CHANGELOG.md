@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.4
+
+- Upgraded `@wc-toolkit/cem-utilities` to resolve error when updating import descriptions.
+
 ## 1.3.3
 
 - Make `@wc-toolkit/cem-utilities` a `dependency` rather than a `devDependency` to resolve the module correctly.
