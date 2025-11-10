@@ -103,7 +103,7 @@ export class WcDoxBase<
         ${styles}
       </style>
       <div class="${className}">
-        <${unsafeStatic(heading)} class="heading">
+        <${unsafeStatic(heading)} class="heading ${config?.headingClass || ''}">
           ${this.config?.heading}
           <a href="#${this.config?.headingId}" class="skip-link" aria-label="${ifDefined(this.config?.skipLinkLabel)}">#</a>
         </${unsafeStatic(heading)}>
@@ -112,7 +112,7 @@ export class WcDoxBase<
             ? unsafeHTML(markdownToHtml(this.config.description))
             : ''
         }
-        <div class="table-wrapper">
+        <div class="table-wrapper ${config?.tableClass || ''}">
           <table>
             <thead>
               <tr>

@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.0
+
+- Upgrade dependencies to use the latest form WC Toolkit
+- Simplified component setup
+- Added logging for failures
+- Added configuration to add custom heading and table classes
+
 ## 1.2.0
 
 - Added templating for optional parameters and default values for methods

@@ -12,6 +12,8 @@ import type { Preview } from '@storybook/web-components';
 setWcStorybookHelpersConfig({ typeRef: 'expandedType' });
 setCustomElementsManifest(customElements);
 setWcDoxConfig(manifest, {
+  headingClass: 'api-heading',
+  tableClass: 'api-table',
   imports: {
     langOnPreTag: true,
     imports: [

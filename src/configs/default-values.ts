@@ -5,6 +5,8 @@ import { Parameter } from 'custom-elements-manifest';
 export const defaultDoxConfig: DoxConfig = {
   hideOnEmpty: true,
   headingLevel: 3,
+  headingClass: '',
+  tableClass: '',
   dox: {
     apiOrder: [
       'imports',

@@ -92,6 +92,10 @@ setWcDoxConfig(manifest, options);
 type DoxConfig = {
   /** Configures the heading level for the API sections - default is 3 */
   headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  /** Configures the CSS class for the API section headings */
+  headingClass?: string;
+  /** Configures the CSS class for the API section tables */
+  tableClass?: string;
   /** Configures the `wc-dox` component contents */
   dox?: DoxElementConfig;
   /** Configures the `wc-imports` component contents */
@@ -100,7 +104,7 @@ type DoxConfig = {
   cssParts?: CssPartsElementConfig;
   /** Configures the `wc-css-props` component contents */
   cssProps?: CssPropsElementConfig;
-  /** Configures the `wc-states` component contents */
+  /** Configures the `wc-css-states` component contents */
   cssStates?: StatesElementConfig;
   /** Configures the `wc-events` component contents */
   events?: EventsElementConfig;

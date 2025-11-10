@@ -6,6 +6,10 @@ export type DoxConfig = {
   hideOnEmpty?: boolean;
   /** Configures the heading level for the API sections - default is 3 */
   headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  /** Configures the CSS class for the API section headings */
+  headingClass?: string;
+  /** Configures the CSS class for the API section tables */
+  tableClass?: string;
   /** Configures the `wc-dox` component contents */
   dox?: DoxElementConfig;
   /** Configures the `wc-imports` component contents */
