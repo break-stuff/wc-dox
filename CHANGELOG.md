@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.2
+
+- Upgraded `@wc-toolkit/cem-utilities` to resolve error when updating import paths.
+
+## 1.3.1
+
+- Fixed type-os in README when documenting CEM imports.
+
 ## 1.3.0
 
 - Upgrade dependencies to use the latest form WC Toolkit

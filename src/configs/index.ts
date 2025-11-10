@@ -6,7 +6,7 @@ import * as cem from 'custom-elements-manifest/schema';
 export * from './types.js';
 
 export let config: DoxConfig = { ...defaultDoxConfig };
-export let manifest = {} as cem.cem;
+export let manifest = {} as cem.Package;
 
 export function setWcDoxConfig(
   customElementsManifest: unknown,

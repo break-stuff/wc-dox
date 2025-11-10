@@ -1,6 +1,6 @@
 {
   "name": "wc-dox",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "A web component API documentation generator",
   "main": "index.js",
   "types": "index.d.ts",
@@ -57,7 +57,7 @@
     "@storybook/web-components-vite": "^8.1.11",
     "@types/mocha": "^10.0.2",
     "@wc-toolkit/cem-sorter": "^1.0.1",
-    "@wc-toolkit/cem-utilities": "^1.5.1",
+    "@wc-toolkit/cem-utilities": "^1.5.2",
     "@wc-toolkit/cem-validator": "^1.0.3",
     "@wc-toolkit/jsdoc-tags": "^1.1.0",
     "@wc-toolkit/jsx-types": "^1.4.3",

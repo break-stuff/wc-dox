@@ -79,8 +79,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1
       '@wc-toolkit/cem-utilities':
-        specifier: ^1.5.1
-        version: 1.5.1
+        specifier: ^1.5.2
+        version: 1.5.2
       '@wc-toolkit/cem-validator':
         specifier: ^1.0.3
         version: 1.0.3
@@ -1184,8 +1184,8 @@ packages:
   '@wc-toolkit/cem-sorter@1.0.1':
     resolution: {integrity: sha512-B7Ku0I1Gfy4dVRyjrbRl9UxROEIacLIFHPRBDs1Sh+yQLMc7xZhREju9msDsPDLhthqjiI0BAt/1OmEy00G1Dg==}
 
-  '@wc-toolkit/cem-utilities@1.5.1':
-    resolution: {integrity: sha512-gKJunIuyDQCQ3wM2jQsr8AvcXPoPoD5H7+ID2iA7DnV//3t/570Ulge28KDPyRIh4iqGHx/t2ETYf+SQ6TxPaw==}
+  '@wc-toolkit/cem-utilities@1.5.2':
+    resolution: {integrity: sha512-DmNT/UUFTfb6fDG+Om2HtlfQn2JAPYeSI33XjKBnZEe3tOiRrOg8/4ySBisH8Ul8YYqV7KcLqG5VKZOf+EG6Dg==}
 
   '@wc-toolkit/cem-validator@1.0.3':
     resolution: {integrity: sha512-teKgwoyUaIUmJQCnYVjaxOLo6wOSNN/cCRh3jeeF84rNDuzyygl+zHfwgU5H8Z02hSvgvCJjKX+r7un9A70svw==}
@@ -5033,7 +5033,7 @@ snapshots:
 
   '@wc-toolkit/cem-sorter@1.0.1': {}
 
-  '@wc-toolkit/cem-utilities@1.5.1': {}
+  '@wc-toolkit/cem-utilities@1.5.2': {}
 
   '@wc-toolkit/cem-validator@1.0.3': {}
 
