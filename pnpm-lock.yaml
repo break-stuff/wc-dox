@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@wc-toolkit/cem-inheritance':
-        specifier: ^1.2.2
-        version: 1.2.2
+      '@wc-toolkit/cem-utilities':
+        specifier: ^1.5.2
+        version: 1.5.2
       lit:
         specifier: ^3.2.1
         version: 3.3.1
@@ -75,12 +75,12 @@ importers:
       '@types/mocha':
         specifier: ^10.0.2
         version: 10.0.10
+      '@wc-toolkit/cem-inheritance':
+        specifier: ^1.2.2
+        version: 1.2.2
       '@wc-toolkit/cem-sorter':
         specifier: ^1.0.1
         version: 1.0.1
-      '@wc-toolkit/cem-utilities':
-        specifier: ^1.5.2
-        version: 1.5.2
       '@wc-toolkit/cem-validator':
         specifier: ^1.0.3
         version: 1.0.3
