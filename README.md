@@ -37,7 +37,7 @@ After installing, you can load the documentation at the root of your project.
 
 ```ts
 import { setWcDoxConfig } from 'wc-dox/index.js';
-import manifest from './custom-elements.json' with { type: json };
+import manifest from './custom-elements.json' with { type: 'json' };
 
 setWcDoxConfig(manifest);
 ```
@@ -62,7 +62,7 @@ If you're using React, you can import the React wrapper components:
 
 ```jsx
 import { WcDox } from 'wc-dox/react';
-import manifest from './custom-elements.json' assert { type: 'json' };
+import manifest from './custom-elements.json' with { type: 'json' };
 import { setWcDoxConfig } from 'wc-dox';
 
 setWcDoxConfig(manifest);
@@ -150,7 +150,7 @@ The `<wc-dox>` and `<wc-imports>` components have unique configurations, but the
 
 ```ts
 import { setWcDoxConfig, DoxConfig } from 'wc-dox/index.js';
-import manifest from './custom-elements.json' with { type: json };
+import manifest from './custom-elements.json' with { type: 'json' };
 
 const options: DoxConfig = {};
 
@@ -645,7 +645,7 @@ All modern browsers (Chrome, Firefox, Safari, Edge) are supported. For older bro
   <head>
     <script type="module">
       import { setWcDoxConfig } from 'wc-dox/index.js';
-      import manifest from './custom-elements.json' assert { type: 'json' };
+      import manifest from './custom-elements.json' with { type: 'json' };
       
       setWcDoxConfig(manifest);
     </script>
@@ -664,7 +664,7 @@ All modern browsers (Chrome, Firefox, Safari, Edge) are supported. For older bro
 
 ```ts
 import { setWcDoxConfig, markdownToHtml } from 'wc-dox/index.js';
-import manifest from './custom-elements.json' assert { type: 'json' };
+import manifest from './custom-elements.json' with { type: 'json' };
 
 setWcDoxConfig(manifest, {
   headingLevel: 2,
