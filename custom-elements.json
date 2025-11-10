@@ -352,7 +352,12 @@
               "propName": "tag"
             }
           ],
-          "modulePath": "src/components/css-parts/css-parts.ts"
+          "modulePath": "src/components/css-parts/css-parts.ts",
+          "cssProperties": [],
+          "cssParts": [],
+          "cssStates": [],
+          "events": [],
+          "slots": []
         }
       ],
       "exports": [
@@ -566,7 +571,12 @@
               "propName": "tag"
             }
           ],
-          "modulePath": "src/components/css-props/css-props.ts"
+          "modulePath": "src/components/css-props/css-props.ts",
+          "cssProperties": [],
+          "cssParts": [],
+          "cssStates": [],
+          "events": [],
+          "slots": []
         }
       ],
       "exports": [
@@ -780,7 +790,12 @@
               "propName": "tag"
             }
           ],
-          "modulePath": "src/components/css-states/css-states.ts"
+          "modulePath": "src/components/css-states/css-states.ts",
+          "cssProperties": [],
+          "cssParts": [],
+          "cssStates": [],
+          "events": [],
+          "slots": []
         }
       ],
       "exports": [
@@ -1074,7 +1089,12 @@
               "propName": "tag"
             }
           ],
-          "modulePath": "src/components/events/events.ts"
+          "modulePath": "src/components/events/events.ts",
+          "cssProperties": [],
+          "cssParts": [],
+          "cssStates": [],
+          "events": [],
+          "slots": []
         }
       ],
       "exports": [
@@ -1446,7 +1466,12 @@
               "propName": "tag"
             }
           ],
-          "modulePath": "src/components/methods/methods.ts"
+          "modulePath": "src/components/methods/methods.ts",
+          "cssProperties": [],
+          "cssParts": [],
+          "cssStates": [],
+          "events": [],
+          "slots": []
         }
       ],
       "exports": [
@@ -1660,7 +1685,12 @@
               "propName": "tag"
             }
           ],
-          "modulePath": "src/components/props/props.ts"
+          "modulePath": "src/components/props/props.ts",
+          "cssProperties": [],
+          "cssParts": [],
+          "cssStates": [],
+          "events": [],
+          "slots": []
         }
       ],
       "exports": [
@@ -1874,7 +1904,12 @@
               "propName": "tag"
             }
           ],
-          "modulePath": "src/components/slots/slots.ts"
+          "modulePath": "src/components/slots/slots.ts",
+          "cssProperties": [],
+          "cssParts": [],
+          "cssStates": [],
+          "events": [],
+          "slots": []
         }
       ],
       "exports": [
