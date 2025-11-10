@@ -7,7 +7,7 @@ import type * as cem from 'custom-elements-manifest';
  * @returns Component[]
  */
 export function getComponent(
-  customElementsManifest: cem.cem,
+  customElementsManifest: cem.Package,
   className?: string,
   tagName?: string,
 ) {
