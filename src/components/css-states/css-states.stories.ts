@@ -20,5 +20,7 @@ type Story = StoryObj<WcCssStates & typeof args>;
 
 export const Default: Story = {
   render: args => template(args),
-  args: {},
+    args: {
+    tag: 'my-element',
+  },
 };

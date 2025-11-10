@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.5
+
+- Simplified component lookup to improve performance and reduce errors
+
 ## 1.3.4
 
 - Upgraded `@wc-toolkit/cem-utilities` to resolve error when updating import descriptions.

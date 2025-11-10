@@ -8,7 +8,10 @@ import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import { markdownToHtml } from '../../utils/markdown.js';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import * as cem from 'custom-elements-manifest/schema';
-import { getComponent } from '../../utils/cem-tools.js';
+import {
+  getComponentByClassName,
+  getComponentByTagName,
+} from '@wc-toolkit/cem-utilities';
 
 let importId = 0;
 
@@ -31,8 +34,8 @@ export class WcImports extends LitElement {
   @property()
   tag?: string;
 
-  @property({ attribute: 'component-class' })
-  componentClass?: string;
+  @property({ attribute: 'component-name' })
+  componentName?: string;
 
   @state()
   private config?: ImportsElementConfig;
@@ -53,7 +56,11 @@ export class WcImports extends LitElement {
 
   override connectedCallback() {
     super.connectedCallback();
-    this.component = getComponent(manifest, this.componentClass, this.tag);
+    if (!this.component) {
+      this.component = this.tag
+        ? getComponentByTagName(manifest, this.tag)
+        : getComponentByClassName(manifest, this.componentName);
+    }
     importId++;
 
     if (config.hideOnEmpty && !this.config?.imports?.length) {
@@ -114,7 +121,10 @@ export class WcImports extends LitElement {
 
         ${this.config?.imports?.map((x, i) => {
           const content =
-            x.importTemplate?.(this.component?.tagName ?? '', this.component?.name ?? '') || '';
+            x.importTemplate?.(
+              this.component?.tagName ?? '',
+              this.component?.name ?? '',
+            ) || '';
           const lang = `language-${x.lang}`;
           return html`<div
             id="tabpanel-${importId}${i}"
@@ -124,7 +134,9 @@ export class WcImports extends LitElement {
             ?hidden="${this.selectedImport !== i}"
           >
             <pre class="${this.config?.langOnPreTag ? lang : ''}">
-              <code class="${!this.config?.langOnPreTag ? lang : ''}">${content}</code>
+              <code class="${!this.config?.langOnPreTag
+              ? lang
+              : ''}">${content}</code>
             </pre>
             <button
               class="copy-button"
