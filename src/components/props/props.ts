@@ -1,8 +1,7 @@
 import styles from './props.styles.js';
-import { config, manifest, PropsElementConfig } from '../../configs/index.js';
+import { config, PropsElementConfig } from '../../configs/index.js';
 import * as cem from 'custom-elements-manifest/schema';
 import WcDoxBase from '../base/dox-base.js';
-import { getComponent, getComponentProperties } from '../../utils/cem-tools.js';
 
 /**
  * A component to document the attributes and properties of a custom element
@@ -18,22 +17,8 @@ export class WcProps extends WcDoxBase<
 > {
   public constructor() {
     super();
+    this.feature = 'properties';
     this.config = config.props;
-  }
-
-  override connectedCallback(): void {
-    super.connectedCallback();
-    this.updateMetaData();
-  }
-
-  protected override updateMetaData(): void {
-    if (!this.metaData) {
-      const component = getComponent(manifest, this.componentName, this.tag);
-      const methods = getComponentProperties(component);
-      this.metaData = methods as cem.CustomElementField[];
-    }
-
-    this.updateVisibility();
   }
 
   override render() {

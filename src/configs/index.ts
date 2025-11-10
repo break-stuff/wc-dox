@@ -12,6 +12,10 @@ export function setWcDoxConfig(
   customElementsManifest: unknown,
   userConfig: DoxConfig = {},
 ) {
+  if(!customElementsManifest || typeof customElementsManifest !== 'object') {
+    console.warn('[wc-dox] Invalid custom elements manifest provided.');
+    return;
+  }
   config = mergeDeep(config as never, userConfig as never);
   manifest = customElementsManifest as never;
 }

@@ -18,6 +18,19 @@ The `wc-dox` package and it's components are designed to be a way to quickly and
 npm i wc-dox
 ```
 
+You can also use the package directly from a CDN:
+
+```html
+<script type="module" src="https://cdn.jsdelivr.net/npm/wc-dox/cdn/index.js"></script>
+```
+
+## Prerequisites
+
+This package requires a [Custom Elements Manifest](https://github.com/webcomponents/custom-elements-manifest) to function. If you don't have one yet, you'll need to generate it using one of these tools:
+
+- [@custom-elements-manifest/analyzer](https://custom-elements-manifest.open-wc.org/analyzer/getting-started/) - The official analyzer
+- [CEM Analyzer Plugins](https://custom-elements-manifest.open-wc.org/analyzer/plugins/intro/) - Extend the analyzer with additional functionality
+
 ## Usage
 
 After installing, you can load the documentation at the root of your project.
@@ -38,6 +51,48 @@ Now that it's loaded, you can load the appropriate documentation by passing the 
 
 <wc-dox component-name="MyElement"></wc-dox>
 ```
+
+> **Note:** You must specify either the `tag` attribute or the `component-name` attribute for the component to work properly.
+
+### Framework Integration
+
+#### React
+
+If you're using React, you can import the React wrapper components:
+
+```jsx
+import { WcDox } from 'wc-dox/react';
+import manifest from './custom-elements.json' assert { type: 'json' };
+import { setWcDoxConfig } from 'wc-dox';
+
+setWcDoxConfig(manifest);
+
+function App() {
+  return <WcDox tag="my-element" />;
+}
+```
+
+The package includes React wrappers for all components: `WcDox`, `WcCssParts`, `WcCssProps`, `WcCssStates`, `WcEvents`, `WcImports`, `WcMethods`, `WcProps`, and `WcSlots`.
+
+## Component Attributes
+
+All documentation components accept the following attributes:
+
+### `tag` (optional)
+The tag name of the component to document. This should match the tag name defined in your custom elements manifest (typically from the `@tag` or `@tagname` JSDoc comment).
+
+```html
+<wc-dox tag="my-element"></wc-dox>
+```
+
+### `component-name` (optional)
+The JavaScript class name of the component to document. Use this when you don't have a tag name or prefer to reference by class name.
+
+```html
+<wc-dox component-name="MyElement"></wc-dox>
+```
+
+> **Important:** You must provide either `tag` or `component-name` for the component to display documentation.
 
 ### Content is in the Light DOM
 
@@ -73,6 +128,20 @@ The `<wc-dox>` element should be all that you need, but if you eed more flexibil
 <wc-slots tag="my-element"></wc-slots>
 ```
 
+## Quick Reference
+
+- [Installation](#installation) - How to install the package
+- [Prerequisites](#prerequisites) - Required dependencies
+- [Usage](#usage) - Basic usage examples
+- [Framework Integration](#framework-integration) - Using with React and other frameworks
+- [Component Attributes](#component-attributes) - Available attributes
+- [Configuration](#configuration) - Customizing the output
+- [Styling](#styling) - Applying custom styles
+- [Examples](#examples) - Real-world usage examples
+- [Troubleshooting](#troubleshooting) - Common issues and solutions
+- [TypeScript Support](#typescript-support) - Using with TypeScript
+- [API Reference](#configuration) - Complete configuration options
+
 ## Configuration
 
 The `setWcDoxConfig` function can take a second parameter to configure the documentation.
@@ -90,8 +159,14 @@ setWcDoxConfig(manifest, options);
 
 ```ts
 type DoxConfig = {
+  /** Hides a section of the documentation if it has no content */
+  hideOnEmpty?: boolean;
   /** Configures the heading level for the API sections - default is 3 */
   headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  /** Configures the CSS class for the API section headings */
+  headingClass?: string;
+  /** Configures the CSS class for the API section tables */
+  tableClass?: string;
   /** Configures the `wc-dox` component contents */
   dox?: DoxElementConfig;
   /** Configures the `wc-imports` component contents */
@@ -100,7 +175,7 @@ type DoxConfig = {
   cssParts?: CssPartsElementConfig;
   /** Configures the `wc-css-props` component contents */
   cssProps?: CssPropsElementConfig;
-  /** Configures the `wc-states` component contents */
+  /** Configures the `wc-css-states` component contents */
   cssStates?: StatesElementConfig;
   /** Configures the `wc-events` component contents */
   events?: EventsElementConfig;
@@ -111,6 +186,27 @@ type DoxConfig = {
   /** Configures the `wc-slots` component contents */
   slots?: SlotsElementConfig;
 };
+```
+
+### Hide Empty Sections
+
+By default, sections with no content are hidden. You can control this behavior with the `hideOnEmpty` option:
+
+```ts
+setWcDoxConfig(manifest, {
+  hideOnEmpty: false, // Show all sections even if empty
+});
+```
+
+### Custom CSS Classes
+
+You can apply custom CSS classes to the generated headings and tables:
+
+```ts
+setWcDoxConfig(manifest, {
+  headingClass: 'my-custom-heading',
+  tableClass: 'my-custom-table',
+});
 ```
 
 ### Heading Level
@@ -244,6 +340,22 @@ type BaseElementConfig<T> = {
 ### Markdown Support
 
 Many of the JSDoc comments support markdown. To parse markdown in these API blocks, you can use the `markdownToHtml` utility helper provided by this project or you can install and use your own.
+
+The package uses [marked](https://marked.js.org/) internally for markdown parsing. You can use the built-in helper:
+
+```ts
+import { markdownToHtml, setWcDoxConfig } from 'wc-dox/index.js';
+
+setWcDoxConfig(manifest, {
+  props: {
+    rowTemplate: prop =>
+      `<tr>
+        <td><code>${prop.name}</code></td>
+        <td>${markdownToHtml(prop.description || '')}</td>
+      </tr>`,
+  },
+});
+```
 
 ### CSS Parts Element Config
 
@@ -441,3 +553,165 @@ cssStates: {
     </tr>`,
 },
 ```
+
+## Styling
+
+The components render their content in the Light DOM, which means you can easily apply your own styles. The package includes a CSS custom property for controlling spacing:
+
+```css
+wc-dox {
+  --wc-dox-content-gap: 2rem; /* Default spacing between sections */
+}
+```
+
+You can also use the `headingClass` and `tableClass` configuration options to add custom classes to the generated elements for easier styling.
+
+## Troubleshooting
+
+### No documentation appears
+- Ensure you've called `setWcDoxConfig(manifest)` before rendering the components
+- Verify that your custom elements manifest is valid JSON
+- Check that the `tag` or `component-name` attribute matches an entry in your manifest
+- Inspect the browser console for any errors
+
+### Documentation is empty or missing sections
+- By default, empty sections are hidden. Set `hideOnEmpty: false` to show them
+- Verify your custom elements manifest includes the expected metadata (properties, events, etc.)
+- Ensure your components are properly documented with JSDoc comments
+
+### Markdown not rendering
+- Make sure you're using the `markdownToHtml` helper in your custom `rowTemplate` functions
+- Check that markdown content is valid
+
+### TypeScript import errors
+- Ensure you're importing from the correct paths: `wc-dox/index.js` for the main module
+- Type definitions are included automatically from `index.d.ts`
+
+## TypeScript Support
+
+The package is written in TypeScript and includes type definitions. You can import types for configuration and custom element manifest structures:
+
+```ts
+import type { 
+  DoxConfig, 
+  BaseElementConfig,
+  CssPartsElementConfig,
+  CssPropsElementConfig,
+  CssStatesElementConfig,
+  EventsElementConfig,
+  MethodsElementConfig,
+  PropsElementConfig,
+  SlotsElementConfig,
+  ImportsElementConfig,
+  DoxElementConfig,
+  // Type aliases for manifest data
+  CssPart,
+  CssProp,
+  Event,
+  Method,
+  Property,
+  Slot,
+  CssState,
+} from 'wc-dox';
+```
+
+## Package Exports
+
+The package provides multiple entry points:
+
+- `wc-dox` - Main entry point with all web components
+- `wc-dox/react` - React wrapper components
+- `wc-dox/index.js` - ES module for direct import
+- `wc-dox/cdn/index.js` - CDN-optimized bundle
+
+All components are automatically registered as custom elements when imported.
+
+## Browser Support
+
+This package uses modern web standards and requires:
+- ES2015+ support
+- Custom Elements v1
+- Shadow DOM v1
+
+All modern browsers (Chrome, Firefox, Safari, Edge) are supported. For older browsers, you may need polyfills.
+
+## Examples
+
+### Basic Usage with Multiple Components
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="module">
+      import { setWcDoxConfig } from 'wc-dox/index.js';
+      import manifest from './custom-elements.json' assert { type: 'json' };
+      
+      setWcDoxConfig(manifest);
+    </script>
+  </head>
+  <body>
+    <h1>My Button Component</h1>
+    <wc-dox tag="my-button"></wc-dox>
+    
+    <h1>My Input Component</h1>
+    <wc-dox tag="my-input"></wc-dox>
+  </body>
+</html>
+```
+
+### Customized Configuration
+
+```ts
+import { setWcDoxConfig, markdownToHtml } from 'wc-dox/index.js';
+import manifest from './custom-elements.json' assert { type: 'json' };
+
+setWcDoxConfig(manifest, {
+  headingLevel: 2,
+  headingClass: 'api-heading',
+  tableClass: 'api-table',
+  hideOnEmpty: true,
+  dox: {
+    apiOrder: ['props', 'events', 'methods', 'slots', 'css-props', 'css-parts'],
+  },
+  props: {
+    heading: 'Properties & Attributes',
+    description: 'Configure the component using these properties:',
+  },
+  events: {
+    heading: 'Custom Events',
+    description: 'Listen for these events:',
+  },
+});
+```
+
+### Individual Component Usage
+
+```html
+<!-- Only show properties documentation -->
+<wc-props tag="my-element"></wc-props>
+
+<!-- Only show events documentation -->
+<wc-events tag="my-element"></wc-events>
+
+<!-- Show imports with custom configuration -->
+<wc-imports tag="my-element"></wc-imports>
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Related Projects
+
+- [Custom Elements Manifest](https://github.com/webcomponents/custom-elements-manifest) - The schema and spec
+- [@custom-elements-manifest/analyzer](https://custom-elements-manifest.open-wc.org/) - Generate custom elements manifests
+- [Lit](https://lit.dev/) - The library used to build these components
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history and updates.

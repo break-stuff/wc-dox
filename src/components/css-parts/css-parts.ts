@@ -15,12 +15,8 @@ import styles from './css-parts.styles.js';
 export class WcCssParts extends WcDoxBase<CssPartsElementConfig, cem.CssPart> {
   public constructor() {
     super();
+    this.feature = 'cssParts';
     this.config = config.cssParts;
-  }
-
-  override connectedCallback(): void {
-    super.connectedCallback();
-    this.updateMetaData('cssParts');
   }
 
   override render() {

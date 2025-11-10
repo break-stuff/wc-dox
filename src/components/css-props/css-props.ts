@@ -17,6 +17,7 @@ export class WcCssProps extends WcDoxBase<
 > {
   public constructor() {
     super();
+    this.feature = 'cssProperties';
     this.config = config.cssProps;
   }
 

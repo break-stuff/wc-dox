@@ -6,23 +6,19 @@ import WcDoxBase from '../base/dox-base.js';
 /**
  * A component to document the CSS custom states of a custom element
  *
- * @tag wc-states
+ * @tag wc-css-states
  * @since 1.0.0
  * @status experimental
  *
  **/
-export class WcStates extends WcDoxBase<
+export class WcCssStates extends WcDoxBase<
 CssStatesElementConfig,
   cem.CssCustomState
 > {
   public constructor() {
     super();
+    this.feature = 'cssStates';
     this.config = config.cssStates;
-  }
-
-  override connectedCallback(): void {
-    super.connectedCallback();
-    this.updateMetaData('cssStates');
   }
 
   override render() {
@@ -30,4 +26,4 @@ CssStatesElementConfig,
   }
 }
 
-export default WcStates;
+export default WcCssStates;

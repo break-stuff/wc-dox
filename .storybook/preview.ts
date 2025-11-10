@@ -12,25 +12,27 @@ import type { Preview } from '@storybook/web-components';
 setWcStorybookHelpersConfig({ typeRef: 'expandedType' });
 setCustomElementsManifest(customElements);
 setWcDoxConfig(manifest, {
+  headingClass: 'api-heading',
+  tableClass: 'api-table',
   imports: {
     langOnPreTag: true,
     imports: [
       {
         label: 'HTML',
         lang: 'html',
-        importTemplate: (tagName, className) =>
+        importTemplate: (tagName: string, className: string) =>
           `<script type="module" src="https://cdn.jsdelivr.net/npm/my-library/dist/${tagName}/${className}.js"></script>`,
       },
       {
         label: 'NPM',
         lang: 'js',
-        importTemplate: (tagName, className) =>
+        importTemplate: (tagName: string, className: string) =>
           `import 'my-library/dist/${tagName}/${className}.js';`,
       },
       {
         label: 'React',
         lang: 'js',
-        importTemplate: tagName =>
+        importTemplate: (tagName: string) =>
           `import 'my-library/react/${tagName}/index.js';`,
       },
     ],

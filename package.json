@@ -1,6 +1,6 @@
 {
   "name": "wc-dox",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A web component API documentation generator",
   "main": "index.js",
   "types": "index.d.ts",
@@ -28,6 +28,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@wc-toolkit/cem-inheritance": "^1.2.2",
     "lit": "^3.2.1",
     "marked": "^15.0.3"
   },
@@ -55,18 +56,20 @@
     "@storybook/web-components": "^8.1.11",
     "@storybook/web-components-vite": "^8.1.11",
     "@types/mocha": "^10.0.2",
+    "@wc-toolkit/cem-sorter": "^1.0.1",
+    "@wc-toolkit/cem-utilities": "^1.5.1",
+    "@wc-toolkit/cem-validator": "^1.0.3",
+    "@wc-toolkit/jsdoc-tags": "^1.1.0",
+    "@wc-toolkit/jsx-types": "^1.4.3",
+    "@wc-toolkit/lazy-loader": "^1.0.1",
+    "@wc-toolkit/type-parser": "^1.2.0",
     "@web/dev-server-esbuild": "^1.0.2",
     "@web/test-runner": "^0.19.0",
     "@web/test-runner-commands": "^0.9.0",
     "@web/test-runner-playwright": "^0.11.0",
-    "cem-plugin-custom-jsdoc-tags": "^1.1.2",
-    "cem-plugin-expanded-types": "^1.3.3",
-    "code-bubble": "^1.1.9",
+    "code-bubble": "^1.3.3",
     "concurrently": "^9.1.0",
-    "custom-element-eslint-rule-generator": "^1.0.1",
     "custom-element-jet-brains-integration": "^1.6.2",
-    "custom-element-jsx-integration": "^1.5.3",
-    "custom-element-lazy-loader": "^1.3.1",
     "custom-element-react-wrappers": "^1.6.8",
     "custom-element-solidjs-integration": "^1.8.2",
     "custom-element-svelte-integration": "^1.1.2",
@@ -74,7 +77,6 @@
     "custom-element-vuejs-integration": "^1.3.3",
     "custom-elements-manifest": "^2.1.0",
     "custom-elements-manifest-deprecator": "^1.1.1",
-    "custom-elements-manifest-inheritance": "^1.1.1",
     "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-lit": "^1.15.0",
@@ -122,5 +124,6 @@
     "typescript",
     "lit",
     "documentation"
-  ]
+  ],
+  "customElements": "custom-elements.json"
 }
