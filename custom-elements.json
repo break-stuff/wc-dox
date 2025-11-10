@@ -17,7 +17,8 @@
               "type": {
                 "text": "Component | undefined"
               },
-              "privacy": "protected"
+              "privacy": "public",
+              "description": "The component data"
             },
             {
               "kind": "field",
@@ -27,7 +28,7 @@
               },
               "privacy": "public",
               "description": "The name of the component class",
-              "attribute": "component-class"
+              "attribute": "component-name"
             },
             {
               "kind": "field",
@@ -117,7 +118,7 @@
           ],
           "attributes": [
             {
-              "name": "component-class",
+              "name": "component-name",
               "type": {
                 "text": "string | undefined"
               },
@@ -175,7 +176,8 @@
               "type": {
                 "text": "Component | undefined"
               },
-              "privacy": "protected",
+              "privacy": "public",
+              "description": "The component data",
               "inheritedFrom": {
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
@@ -189,7 +191,7 @@
               },
               "privacy": "public",
               "description": "The name of the component class",
-              "attribute": "component-class",
+              "attribute": "component-name",
               "inheritedFrom": {
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
@@ -326,7 +328,7 @@
           },
           "attributes": [
             {
-              "name": "component-class",
+              "name": "component-name",
               "type": {
                 "text": "string | undefined"
               },
@@ -336,7 +338,7 @@
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
               },
-              "propName": "componentClass"
+              "propName": "componentName"
             },
             {
               "name": "tag",
@@ -352,12 +354,7 @@
               "propName": "tag"
             }
           ],
-          "modulePath": "src/components/css-parts/css-parts.ts",
-          "cssProperties": [],
-          "cssParts": [],
-          "cssStates": [],
-          "events": [],
-          "slots": []
+          "modulePath": "src/components/css-parts/css-parts.ts"
         }
       ],
       "exports": [
@@ -394,7 +391,8 @@
               "type": {
                 "text": "Component | undefined"
               },
-              "privacy": "protected",
+              "privacy": "public",
+              "description": "The component data",
               "inheritedFrom": {
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
@@ -408,7 +406,7 @@
               },
               "privacy": "public",
               "description": "The name of the component class",
-              "attribute": "component-class",
+              "attribute": "component-name",
               "inheritedFrom": {
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
@@ -545,7 +543,7 @@
           },
           "attributes": [
             {
-              "name": "component-class",
+              "name": "component-name",
               "type": {
                 "text": "string | undefined"
               },
@@ -555,7 +553,7 @@
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
               },
-              "propName": "componentClass"
+              "propName": "componentName"
             },
             {
               "name": "tag",
@@ -571,12 +569,7 @@
               "propName": "tag"
             }
           ],
-          "modulePath": "src/components/css-props/css-props.ts",
-          "cssProperties": [],
-          "cssParts": [],
-          "cssStates": [],
-          "events": [],
-          "slots": []
+          "modulePath": "src/components/css-props/css-props.ts"
         }
       ],
       "exports": [
@@ -613,7 +606,8 @@
               "type": {
                 "text": "Component | undefined"
               },
-              "privacy": "protected",
+              "privacy": "public",
+              "description": "The component data",
               "inheritedFrom": {
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
@@ -627,7 +621,7 @@
               },
               "privacy": "public",
               "description": "The name of the component class",
-              "attribute": "component-class",
+              "attribute": "component-name",
               "inheritedFrom": {
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
@@ -764,7 +758,7 @@
           },
           "attributes": [
             {
-              "name": "component-class",
+              "name": "component-name",
               "type": {
                 "text": "string | undefined"
               },
@@ -774,7 +768,7 @@
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
               },
-              "propName": "componentClass"
+              "propName": "componentName"
             },
             {
               "name": "tag",
@@ -790,12 +784,7 @@
               "propName": "tag"
             }
           ],
-          "modulePath": "src/components/css-states/css-states.ts",
-          "cssProperties": [],
-          "cssParts": [],
-          "cssStates": [],
-          "events": [],
-          "slots": []
+          "modulePath": "src/components/css-states/css-states.ts"
         }
       ],
       "exports": [
@@ -828,11 +817,19 @@
           "members": [
             {
               "kind": "field",
+              "name": "component",
+              "type": {
+                "text": "Component | undefined"
+              },
+              "privacy": "protected"
+            },
+            {
+              "kind": "field",
               "name": "componentName",
               "type": {
                 "text": "string | undefined"
               },
-              "attribute": "component-class"
+              "attribute": "component-name"
             },
             {
               "kind": "field",
@@ -845,12 +842,12 @@
           ],
           "attributes": [
             {
-              "name": "component-class",
+              "name": "component-name",
               "type": {
                 "text": "string | undefined"
               },
               "fieldName": "componentName",
-              "propName": "componentClass"
+              "propName": "componentName"
             },
             {
               "name": "tag",
@@ -912,7 +909,8 @@
               "type": {
                 "text": "Component | undefined"
               },
-              "privacy": "protected",
+              "privacy": "public",
+              "description": "The component data",
               "inheritedFrom": {
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
@@ -926,7 +924,7 @@
               },
               "privacy": "public",
               "description": "The name of the component class",
-              "attribute": "component-class",
+              "attribute": "component-name",
               "inheritedFrom": {
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
@@ -1063,7 +1061,7 @@
           },
           "attributes": [
             {
-              "name": "component-class",
+              "name": "component-name",
               "type": {
                 "text": "string | undefined"
               },
@@ -1073,7 +1071,7 @@
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
               },
-              "propName": "componentClass"
+              "propName": "componentName"
             },
             {
               "name": "tag",
@@ -1089,12 +1087,7 @@
               "propName": "tag"
             }
           ],
-          "modulePath": "src/components/events/events.ts",
-          "cssProperties": [],
-          "cssParts": [],
-          "cssStates": [],
-          "events": [],
-          "slots": []
+          "modulePath": "src/components/events/events.ts"
         }
       ],
       "exports": [
@@ -1151,11 +1144,11 @@
             },
             {
               "kind": "field",
-              "name": "componentClass",
+              "name": "componentName",
               "type": {
                 "text": "string | undefined"
               },
-              "attribute": "component-class"
+              "attribute": "component-name"
             },
             {
               "kind": "field",
@@ -1222,12 +1215,12 @@
           ],
           "attributes": [
             {
-              "name": "component-class",
+              "name": "component-name",
               "type": {
                 "text": "string | undefined"
               },
-              "fieldName": "componentClass",
-              "propName": "componentClass"
+              "fieldName": "componentName",
+              "propName": "componentName"
             },
             {
               "name": "tag",
@@ -1289,7 +1282,8 @@
               "type": {
                 "text": "Component | undefined"
               },
-              "privacy": "protected",
+              "privacy": "public",
+              "description": "The component data",
               "inheritedFrom": {
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
@@ -1303,7 +1297,7 @@
               },
               "privacy": "public",
               "description": "The name of the component class",
-              "attribute": "component-class",
+              "attribute": "component-name",
               "inheritedFrom": {
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
@@ -1440,7 +1434,7 @@
           },
           "attributes": [
             {
-              "name": "component-class",
+              "name": "component-name",
               "type": {
                 "text": "string | undefined"
               },
@@ -1450,7 +1444,7 @@
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
               },
-              "propName": "componentClass"
+              "propName": "componentName"
             },
             {
               "name": "tag",
@@ -1466,12 +1460,7 @@
               "propName": "tag"
             }
           ],
-          "modulePath": "src/components/methods/methods.ts",
-          "cssProperties": [],
-          "cssParts": [],
-          "cssStates": [],
-          "events": [],
-          "slots": []
+          "modulePath": "src/components/methods/methods.ts"
         }
       ],
       "exports": [
@@ -1508,7 +1497,8 @@
               "type": {
                 "text": "Component | undefined"
               },
-              "privacy": "protected",
+              "privacy": "public",
+              "description": "The component data",
               "inheritedFrom": {
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
@@ -1522,7 +1512,7 @@
               },
               "privacy": "public",
               "description": "The name of the component class",
-              "attribute": "component-class",
+              "attribute": "component-name",
               "inheritedFrom": {
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
@@ -1659,7 +1649,7 @@
           },
           "attributes": [
             {
-              "name": "component-class",
+              "name": "component-name",
               "type": {
                 "text": "string | undefined"
               },
@@ -1669,7 +1659,7 @@
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
               },
-              "propName": "componentClass"
+              "propName": "componentName"
             },
             {
               "name": "tag",
@@ -1685,12 +1675,7 @@
               "propName": "tag"
             }
           ],
-          "modulePath": "src/components/props/props.ts",
-          "cssProperties": [],
-          "cssParts": [],
-          "cssStates": [],
-          "events": [],
-          "slots": []
+          "modulePath": "src/components/props/props.ts"
         }
       ],
       "exports": [
@@ -1727,7 +1712,8 @@
               "type": {
                 "text": "Component | undefined"
               },
-              "privacy": "protected",
+              "privacy": "public",
+              "description": "The component data",
               "inheritedFrom": {
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
@@ -1741,7 +1727,7 @@
               },
               "privacy": "public",
               "description": "The name of the component class",
-              "attribute": "component-class",
+              "attribute": "component-name",
               "inheritedFrom": {
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
@@ -1878,7 +1864,7 @@
           },
           "attributes": [
             {
-              "name": "component-class",
+              "name": "component-name",
               "type": {
                 "text": "string | undefined"
               },
@@ -1888,7 +1874,7 @@
                 "name": "WcDoxBase",
                 "module": "src/components/base/dox-base.ts"
               },
-              "propName": "componentClass"
+              "propName": "componentName"
             },
             {
               "name": "tag",
@@ -1904,12 +1890,7 @@
               "propName": "tag"
             }
           ],
-          "modulePath": "src/components/slots/slots.ts",
-          "cssProperties": [],
-          "cssParts": [],
-          "cssStates": [],
-          "events": [],
-          "slots": []
+          "modulePath": "src/components/slots/slots.ts"
         }
       ],
       "exports": [

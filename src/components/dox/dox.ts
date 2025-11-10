@@ -1,8 +1,13 @@
 import { html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import styles from './dox.styles.js';
-import { config } from '../../configs/index.js';
+import { config, manifest } from '../../configs/index.js';
 import WcDoxBase from '../base/dox-base.js';
+import {
+  Component,
+  getComponentByClassName,
+  getComponentByTagName,
+} from '@wc-toolkit/cem-utilities';
 
 /**
  * A component to document the APIs of a custom element
@@ -17,26 +22,30 @@ export class WcDox extends LitElement {
     return this;
   }
 
+  protected component?: Component;
+
   @property()
   tag?: string;
 
-  @property({ attribute: 'component-class' })
+  @property({ attribute: 'component-name' })
   componentName?: string;
 
   override connectedCallback(): void {
     super.connectedCallback();
-    if (this.tag || this.componentName) {
+    this.component = this.tag
+      ? getComponentByTagName(manifest, this.tag)
+      : getComponentByClassName(manifest, this.componentName);
+    if (this.component) {
       config.dox?.apiOrder?.forEach(importName => {
         const component = document.createElement(
           `wc-${importName}`,
         ) as WcDoxBase<never, unknown>;
-        component.tag = this.tag;
-        component.componentName = this.componentName;
+        component.component = this.component;
         this.appendChild(component);
       });
     } else {
       console.warn(
-        '[wc-dox] Please provide either a "tag" or "component-class" attribute to document a custom element.',
+        `[wc-dox] No component defined to extract metadata from for tag "${this.tag}" or class "${this.componentName}" in "${this.tagName.toLowerCase()}".`,
       );
     }
   }

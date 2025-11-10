@@ -7,7 +7,13 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { markdownToHtml } from '../../utils/markdown.js';
 import { config } from '../../configs/index.js';
-import { getComponentByClassName, getComponentPublicProperties, getComponentByTagName, Component, getComponentPublicMethods } from '@wc-toolkit/cem-utilities';
+import {
+  getComponentByClassName,
+  getComponentPublicProperties,
+  getComponentByTagName,
+  Component,
+  getComponentPublicMethods,
+} from '@wc-toolkit/cem-utilities';
 
 export type ComponentAPI = keyof cem.CustomElement | 'properties' | 'methods';
 
@@ -23,15 +29,17 @@ export class WcDoxBase<
   }
 
   protected config?: Config;
-  protected component?: Component;
   protected feature?: ComponentAPI;
+
+  /** The component data */
+  public component?: Component;
 
   /** The tag name of the custom element */
   @property()
   public tag?: string;
 
   /** The name of the component class */
-  @property({ attribute: 'component-class' })
+  @property({ attribute: 'component-name' })
   public componentName?: string;
 
   @state()
@@ -39,32 +47,42 @@ export class WcDoxBase<
 
   override connectedCallback(): void {
     super.connectedCallback();
-    this.component = getComponentByTagName(manifest, this.tag) || getComponentByClassName(manifest, this.componentName);
+    if (!this.component) {
+      this.component = this.tag
+        ? getComponentByTagName(manifest, this.tag)
+        : getComponentByClassName(manifest, this.componentName);
+    }
     this.updateMetaData(this.feature); // default to empty string if feature is undefined
   }
 
   protected updateMetaData(feature?: ComponentAPI): void {
-    if(!this.component) {
-      console.warn(`[wc-dox] No component defined to extract metadata from for tag "${this.tag}" or class "${this.componentName}" in "${this.tagName.toLowerCase()}".`);
+    if (!this.component) {
+      console.warn(
+        `[wc-dox] No component defined to extract metadata from for tag "${this.tag}" or class "${this.componentName}" in "${this.tagName.toLowerCase()}".`,
+      );
       this.metaData = [];
       this.updateVisibility();
       return;
     }
 
-    if(!feature) {
-      console.warn(`[wc-dox] No feature defined to extract metadata from in "${this.tagName.toLowerCase()}".`);
+    if (!feature) {
+      console.warn(
+        `[wc-dox] No feature defined to extract metadata from in "${this.tagName.toLowerCase()}".`,
+      );
       this.metaData = [];
       this.updateVisibility();
       return;
     }
 
-    if(feature === 'properties') {
-      this.metaData = getComponentPublicProperties(this.component) as MetaData[];
+    if (feature === 'properties') {
+      this.metaData = getComponentPublicProperties(
+        this.component,
+      ) as MetaData[];
       this.updateVisibility();
       return;
     }
 
-    if(feature === 'methods') {
+    if (feature === 'methods') {
       this.metaData = getComponentPublicMethods(this.component) as MetaData[];
       this.updateVisibility();
       return;
