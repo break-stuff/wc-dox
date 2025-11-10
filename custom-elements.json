@@ -4,6 +4,164 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "src/components/base/dox-base.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "This base class is to isolate reusable code for the dox components.",
+          "name": "WcDoxBase",
+          "members": [
+            {
+              "kind": "field",
+              "name": "component",
+              "type": {
+                "text": "Component | undefined"
+              },
+              "privacy": "protected"
+            },
+            {
+              "kind": "field",
+              "name": "componentName",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The name of the component class",
+              "attribute": "component-class"
+            },
+            {
+              "kind": "field",
+              "name": "config",
+              "type": {
+                "text": "Config | undefined"
+              },
+              "privacy": "protected"
+            },
+            {
+              "kind": "field",
+              "name": "feature",
+              "type": {
+                "text": "ComponentAPI | undefined"
+              },
+              "privacy": "protected",
+              "parsedType": {
+                "text": "'slots' | 'methods' | 'events' | 'tagName' | 'attributes' | 'cssParts' | 'cssProperties' | 'cssStates' | 'demos' | 'customElement' | 'name' | 'summary' | 'description' | 'superclass' | 'mixins' | 'members' | 'source' | 'deprecated' | 'properties' | undefined"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getRenderTemplate",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "styles",
+                  "type": {
+                    "text": "CSSResult"
+                  }
+                },
+                {
+                  "name": "className",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "metaData",
+              "type": {
+                "text": "MetaData[] | undefined"
+              },
+              "privacy": "protected"
+            },
+            {
+              "kind": "field",
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The tag name of the custom element",
+              "attribute": "tag"
+            },
+            {
+              "kind": "method",
+              "name": "updateMetaData",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "feature",
+                  "optional": true,
+                  "type": {
+                    "text": "ComponentAPI"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "updateVisibility",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "component-class",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The name of the component class",
+              "fieldName": "componentName"
+            },
+            {
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The tag name of the custom element",
+              "fieldName": "tag"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "customElement": true,
+          "modulePath": "src/components/base/dox-base.ts"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WcDoxBase",
+            "module": "src/components/base/dox-base.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "WcDoxBase",
+          "declaration": {
+            "name": "WcDoxBase",
+            "module": "src/components/base/dox-base.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/css-parts/css-parts.ts",
       "declarations": [
         {
@@ -13,7 +171,143 @@
           "members": [
             {
               "kind": "field",
-              "name": "config"
+              "name": "component",
+              "type": {
+                "text": "Component | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "componentName",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The name of the component class",
+              "attribute": "component-class",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "config",
+              "type": {
+                "text": "Config | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "feature",
+              "type": {
+                "text": "ComponentAPI | undefined"
+              },
+              "privacy": "protected",
+              "parsedType": {
+                "text": "'slots' | 'methods' | 'events' | 'tagName' | 'attributes' | 'cssParts' | 'cssProperties' | 'cssStates' | 'demos' | 'customElement' | 'name' | 'summary' | 'description' | 'superclass' | 'mixins' | 'members' | 'source' | 'deprecated' | 'properties' | undefined"
+              },
+              "default": "'cssParts'",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getRenderTemplate",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "styles",
+                  "type": {
+                    "text": "CSSResult"
+                  }
+                },
+                {
+                  "name": "className",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "metaData",
+              "type": {
+                "text": "MetaData[] | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The tag name of the custom element",
+              "attribute": "tag",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateMetaData",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "feature",
+                  "optional": true,
+                  "type": {
+                    "text": "ComponentAPI"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateVisibility",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
             }
           ],
           "superclass": {
@@ -29,13 +323,42 @@
           "status": {
             "name": "experimental",
             "description": ""
-          }
+          },
+          "attributes": [
+            {
+              "name": "component-class",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The name of the component class",
+              "fieldName": "componentName",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              },
+              "propName": "componentClass"
+            },
+            {
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The tag name of the custom element",
+              "fieldName": "tag",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              },
+              "propName": "tag"
+            }
+          ],
+          "modulePath": "src/components/css-parts/css-parts.ts"
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "WcCssParts",
+          "name": "default",
           "declaration": {
             "name": "WcCssParts",
             "module": "src/components/css-parts/css-parts.ts"
@@ -43,10 +366,224 @@
         },
         {
           "kind": "js",
-          "name": "default",
+          "name": "WcCssParts",
           "declaration": {
             "name": "WcCssParts",
             "module": "src/components/css-parts/css-parts.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/css-props/css-props.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A component to document the CSS custom properties of a custom element",
+          "name": "WcCssProps",
+          "members": [
+            {
+              "kind": "field",
+              "name": "component",
+              "type": {
+                "text": "Component | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "componentName",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The name of the component class",
+              "attribute": "component-class",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "config",
+              "type": {
+                "text": "Config | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "feature",
+              "type": {
+                "text": "ComponentAPI | undefined"
+              },
+              "privacy": "protected",
+              "parsedType": {
+                "text": "'slots' | 'methods' | 'events' | 'tagName' | 'attributes' | 'cssParts' | 'cssProperties' | 'cssStates' | 'demos' | 'customElement' | 'name' | 'summary' | 'description' | 'superclass' | 'mixins' | 'members' | 'source' | 'deprecated' | 'properties' | undefined"
+              },
+              "default": "'cssProperties'",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getRenderTemplate",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "styles",
+                  "type": {
+                    "text": "CSSResult"
+                  }
+                },
+                {
+                  "name": "className",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "metaData",
+              "type": {
+                "text": "MetaData[] | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The tag name of the custom element",
+              "attribute": "tag",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateMetaData",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "feature",
+                  "optional": true,
+                  "type": {
+                    "text": "ComponentAPI"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateVisibility",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "WcDoxBase",
+            "module": "/src/components/base/dox-base.js"
+          },
+          "tagName": "wc-css-props",
+          "customElement": true,
+          "since": {
+            "name": "1.0.0",
+            "description": ""
+          },
+          "status": {
+            "name": "experimental",
+            "description": ""
+          },
+          "attributes": [
+            {
+              "name": "component-class",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The name of the component class",
+              "fieldName": "componentName",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              },
+              "propName": "componentClass"
+            },
+            {
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The tag name of the custom element",
+              "fieldName": "tag",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              },
+              "propName": "tag"
+            }
+          ],
+          "modulePath": "src/components/css-props/css-props.ts"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WcCssProps",
+            "module": "src/components/css-props/css-props.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "WcCssProps",
+          "declaration": {
+            "name": "WcCssProps",
+            "module": "src/components/css-props/css-props.ts"
           }
         }
       ]
@@ -58,18 +595,154 @@
         {
           "kind": "class",
           "description": "A component to document the CSS custom states of a custom element",
-          "name": "WcStates",
+          "name": "WcCssStates",
           "members": [
             {
               "kind": "field",
-              "name": "config"
+              "name": "component",
+              "type": {
+                "text": "Component | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "componentName",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The name of the component class",
+              "attribute": "component-class",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "config",
+              "type": {
+                "text": "Config | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "feature",
+              "type": {
+                "text": "ComponentAPI | undefined"
+              },
+              "privacy": "protected",
+              "parsedType": {
+                "text": "'slots' | 'methods' | 'events' | 'tagName' | 'attributes' | 'cssParts' | 'cssProperties' | 'cssStates' | 'demos' | 'customElement' | 'name' | 'summary' | 'description' | 'superclass' | 'mixins' | 'members' | 'source' | 'deprecated' | 'properties' | undefined"
+              },
+              "default": "'cssStates'",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getRenderTemplate",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "styles",
+                  "type": {
+                    "text": "CSSResult"
+                  }
+                },
+                {
+                  "name": "className",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "metaData",
+              "type": {
+                "text": "MetaData[] | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The tag name of the custom element",
+              "attribute": "tag",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateMetaData",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "feature",
+                  "optional": true,
+                  "type": {
+                    "text": "ComponentAPI"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateVisibility",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
             }
           ],
           "superclass": {
             "name": "WcDoxBase",
             "module": "/src/components/base/dox-base.js"
           },
-          "tagName": "wc-states",
+          "tagName": "wc-css-states",
           "customElement": true,
           "since": {
             "name": "1.0.0",
@@ -78,23 +751,52 @@
           "status": {
             "name": "experimental",
             "description": ""
-          }
+          },
+          "attributes": [
+            {
+              "name": "component-class",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The name of the component class",
+              "fieldName": "componentName",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              },
+              "propName": "componentClass"
+            },
+            {
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The tag name of the custom element",
+              "fieldName": "tag",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              },
+              "propName": "tag"
+            }
+          ],
+          "modulePath": "src/components/css-states/css-states.ts"
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "WcStates",
+          "name": "default",
           "declaration": {
-            "name": "WcStates",
+            "name": "WcCssStates",
             "module": "src/components/css-states/css-states.ts"
           }
         },
         {
           "kind": "js",
-          "name": "default",
+          "name": "WcCssStates",
           "declaration": {
-            "name": "WcStates",
+            "name": "WcCssStates",
             "module": "src/components/css-states/css-states.ts"
           }
         }
@@ -111,30 +813,22 @@
           "members": [
             {
               "kind": "field",
-              "name": "tag",
-              "type": {
-                "text": "string | undefined"
-              },
-              "attribute": "tag"
-            },
-            {
-              "kind": "field",
               "name": "componentName",
               "type": {
                 "text": "string | undefined"
               },
               "attribute": "component-class"
-            }
-          ],
-          "attributes": [
+            },
             {
+              "kind": "field",
               "name": "tag",
               "type": {
                 "text": "string | undefined"
               },
-              "fieldName": "tag",
-              "propName": "tag"
-            },
+              "attribute": "tag"
+            }
+          ],
+          "attributes": [
             {
               "name": "component-class",
               "type": {
@@ -142,6 +836,14 @@
               },
               "fieldName": "componentName",
               "propName": "componentClass"
+            },
+            {
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "tag",
+              "propName": "tag"
             }
           ],
           "superclass": {
@@ -157,73 +859,25 @@
           "status": {
             "name": "experimental",
             "description": ""
-          }
+          },
+          "modulePath": "src/components/dox/dox.ts"
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WcDox",
+            "module": "src/components/dox/dox.ts"
+          }
+        },
         {
           "kind": "js",
           "name": "WcDox",
           "declaration": {
             "name": "WcDox",
             "module": "src/components/dox/dox.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WcDox",
-            "module": "src/components/dox/dox.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/css-props/css-props.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "A component to document the CSS custom properties of a custom element",
-          "name": "WcCssProps",
-          "members": [
-            {
-              "kind": "field",
-              "name": "config"
-            }
-          ],
-          "superclass": {
-            "name": "WcDoxBase",
-            "module": "/src/components/base/dox-base.js"
-          },
-          "tagName": "wc-css-props",
-          "customElement": true,
-          "since": {
-            "name": "1.0.0",
-            "description": ""
-          },
-          "status": {
-            "name": "experimental",
-            "description": ""
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "WcCssProps",
-          "declaration": {
-            "name": "WcCssProps",
-            "module": "src/components/css-props/css-props.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WcCssProps",
-            "module": "src/components/css-props/css-props.ts"
           }
         }
       ]
@@ -239,7 +893,143 @@
           "members": [
             {
               "kind": "field",
-              "name": "config"
+              "name": "component",
+              "type": {
+                "text": "Component | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "componentName",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The name of the component class",
+              "attribute": "component-class",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "config",
+              "type": {
+                "text": "Config | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "feature",
+              "type": {
+                "text": "ComponentAPI | undefined"
+              },
+              "privacy": "protected",
+              "parsedType": {
+                "text": "'slots' | 'methods' | 'events' | 'tagName' | 'attributes' | 'cssParts' | 'cssProperties' | 'cssStates' | 'demos' | 'customElement' | 'name' | 'summary' | 'description' | 'superclass' | 'mixins' | 'members' | 'source' | 'deprecated' | 'properties' | undefined"
+              },
+              "default": "'events'",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getRenderTemplate",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "styles",
+                  "type": {
+                    "text": "CSSResult"
+                  }
+                },
+                {
+                  "name": "className",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "metaData",
+              "type": {
+                "text": "MetaData[] | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The tag name of the custom element",
+              "attribute": "tag",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateMetaData",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "feature",
+                  "optional": true,
+                  "type": {
+                    "text": "ComponentAPI"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateVisibility",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
             }
           ],
           "superclass": {
@@ -255,83 +1045,53 @@
           "status": {
             "name": "experimental",
             "description": ""
-          }
+          },
+          "attributes": [
+            {
+              "name": "component-class",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The name of the component class",
+              "fieldName": "componentName",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              },
+              "propName": "componentClass"
+            },
+            {
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The tag name of the custom element",
+              "fieldName": "tag",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              },
+              "propName": "tag"
+            }
+          ],
+          "modulePath": "src/components/events/events.ts"
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WcEvents",
+            "module": "src/components/events/events.ts"
+          }
+        },
         {
           "kind": "js",
           "name": "WcEvents",
           "declaration": {
             "name": "WcEvents",
             "module": "src/components/events/events.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WcEvents",
-            "module": "src/components/events/events.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/methods/methods.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "A component to document the methods of a custom element",
-          "name": "WcMethods",
-          "members": [
-            {
-              "kind": "method",
-              "name": "updateMetaData",
-              "privacy": "protected",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "field",
-              "name": "config"
-            }
-          ],
-          "superclass": {
-            "name": "WcDoxBase",
-            "module": "/src/components/base/dox-base.js"
-          },
-          "tagName": "wc-methods",
-          "customElement": true,
-          "since": {
-            "name": "1.0.0",
-            "description": ""
-          },
-          "status": {
-            "name": "experimental",
-            "description": ""
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "WcMethods",
-          "declaration": {
-            "name": "WcMethods",
-            "module": "src/components/methods/methods.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WcMethods",
-            "module": "src/components/methods/methods.ts"
           }
         }
       ]
@@ -364,11 +1124,10 @@
           "members": [
             {
               "kind": "field",
-              "name": "tag",
+              "name": "component",
               "type": {
-                "text": "string | undefined"
-              },
-              "attribute": "tag"
+                "text": "cem.CustomElement | undefined"
+              }
             },
             {
               "kind": "field",
@@ -384,16 +1143,31 @@
               "type": {
                 "text": "ImportsElementConfig | undefined"
               },
-              "privacy": "private"
+              "privacy": "private",
+              "parsedType": {
+                "text": "{ heading?: string, headingId?: string, description?: string, copyIcon?: string, copyLabel?: string, copiedIcon?: string, copiedLabel?: string, langOnPreTag?: false | true, imports?: ImportConfig[] } | undefined"
+              }
             },
             {
               "kind": "field",
-              "name": "selectedImport",
+              "name": "copied",
               "type": {
-                "text": "number"
+                "text": "boolean"
               },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "handleCopyClick",
               "privacy": "private",
-              "default": "0"
+              "parameters": [
+                {
+                  "name": "content",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -407,17 +1181,26 @@
                   }
                 }
               ]
-            }
-          ],
-          "attributes": [
+            },
             {
+              "kind": "field",
+              "name": "selectedImport",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
               "name": "tag",
               "type": {
                 "text": "string | undefined"
               },
-              "fieldName": "tag",
-              "propName": "tag"
-            },
+              "attribute": "tag"
+            }
+          ],
+          "attributes": [
             {
               "name": "component-class",
               "type": {
@@ -425,6 +1208,14 @@
               },
               "fieldName": "componentClass",
               "propName": "componentClass"
+            },
+            {
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "tag",
+              "propName": "tag"
             }
           ],
           "superclass": {
@@ -440,13 +1231,14 @@
           "status": {
             "name": "experimental",
             "description": ""
-          }
+          },
+          "modulePath": "src/components/imports/imports.ts"
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "WcImports",
+          "name": "default",
           "declaration": {
             "name": "WcImports",
             "module": "src/components/imports/imports.ts"
@@ -454,10 +1246,224 @@
         },
         {
           "kind": "js",
-          "name": "default",
+          "name": "WcImports",
           "declaration": {
             "name": "WcImports",
             "module": "src/components/imports/imports.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/methods/methods.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A component to document the methods of a custom element",
+          "name": "WcMethods",
+          "members": [
+            {
+              "kind": "field",
+              "name": "component",
+              "type": {
+                "text": "Component | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "componentName",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The name of the component class",
+              "attribute": "component-class",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "config",
+              "type": {
+                "text": "Config | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "feature",
+              "type": {
+                "text": "ComponentAPI | undefined"
+              },
+              "privacy": "protected",
+              "parsedType": {
+                "text": "'slots' | 'methods' | 'events' | 'tagName' | 'attributes' | 'cssParts' | 'cssProperties' | 'cssStates' | 'demos' | 'customElement' | 'name' | 'summary' | 'description' | 'superclass' | 'mixins' | 'members' | 'source' | 'deprecated' | 'properties' | undefined"
+              },
+              "default": "'methods'",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getRenderTemplate",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "styles",
+                  "type": {
+                    "text": "CSSResult"
+                  }
+                },
+                {
+                  "name": "className",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "metaData",
+              "type": {
+                "text": "MetaData[] | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The tag name of the custom element",
+              "attribute": "tag",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateMetaData",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "feature",
+                  "optional": true,
+                  "type": {
+                    "text": "ComponentAPI"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateVisibility",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "WcDoxBase",
+            "module": "/src/components/base/dox-base.js"
+          },
+          "tagName": "wc-methods",
+          "customElement": true,
+          "since": {
+            "name": "1.0.0",
+            "description": ""
+          },
+          "status": {
+            "name": "experimental",
+            "description": ""
+          },
+          "attributes": [
+            {
+              "name": "component-class",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The name of the component class",
+              "fieldName": "componentName",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              },
+              "propName": "componentClass"
+            },
+            {
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The tag name of the custom element",
+              "fieldName": "tag",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              },
+              "propName": "tag"
+            }
+          ],
+          "modulePath": "src/components/methods/methods.ts"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WcMethods",
+            "module": "src/components/methods/methods.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "WcMethods",
+          "declaration": {
+            "name": "WcMethods",
+            "module": "src/components/methods/methods.ts"
           }
         }
       ]
@@ -472,6 +1478,109 @@
           "name": "WcProps",
           "members": [
             {
+              "kind": "field",
+              "name": "component",
+              "type": {
+                "text": "Component | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "componentName",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The name of the component class",
+              "attribute": "component-class",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "config",
+              "type": {
+                "text": "Config | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "feature",
+              "type": {
+                "text": "ComponentAPI | undefined"
+              },
+              "privacy": "protected",
+              "parsedType": {
+                "text": "'slots' | 'methods' | 'events' | 'tagName' | 'attributes' | 'cssParts' | 'cssProperties' | 'cssStates' | 'demos' | 'customElement' | 'name' | 'summary' | 'description' | 'superclass' | 'mixins' | 'members' | 'source' | 'deprecated' | 'properties' | undefined"
+              },
+              "default": "'properties'",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getRenderTemplate",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "styles",
+                  "type": {
+                    "text": "CSSResult"
+                  }
+                },
+                {
+                  "name": "className",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "metaData",
+              "type": {
+                "text": "MetaData[] | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The tag name of the custom element",
+              "attribute": "tag",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
               "kind": "method",
               "name": "updateMetaData",
               "privacy": "protected",
@@ -479,11 +1588,34 @@
                 "type": {
                   "text": "void"
                 }
+              },
+              "parameters": [
+                {
+                  "name": "feature",
+                  "optional": true,
+                  "type": {
+                    "text": "ComponentAPI"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
               }
             },
             {
-              "kind": "field",
-              "name": "config"
+              "kind": "method",
+              "name": "updateVisibility",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
             }
           ],
           "superclass": {
@@ -499,13 +1631,42 @@
           "status": {
             "name": "experimental",
             "description": ""
-          }
+          },
+          "attributes": [
+            {
+              "name": "component-class",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The name of the component class",
+              "fieldName": "componentName",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              },
+              "propName": "componentClass"
+            },
+            {
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The tag name of the custom element",
+              "fieldName": "tag",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              },
+              "propName": "tag"
+            }
+          ],
+          "modulePath": "src/components/props/props.ts"
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "WcProps",
+          "name": "default",
           "declaration": {
             "name": "WcProps",
             "module": "src/components/props/props.ts"
@@ -513,7 +1674,7 @@
         },
         {
           "kind": "js",
-          "name": "default",
+          "name": "WcProps",
           "declaration": {
             "name": "WcProps",
             "module": "src/components/props/props.ts"
@@ -532,7 +1693,143 @@
           "members": [
             {
               "kind": "field",
-              "name": "config"
+              "name": "component",
+              "type": {
+                "text": "Component | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "componentName",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The name of the component class",
+              "attribute": "component-class",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "config",
+              "type": {
+                "text": "Config | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "feature",
+              "type": {
+                "text": "ComponentAPI | undefined"
+              },
+              "privacy": "protected",
+              "parsedType": {
+                "text": "'slots' | 'methods' | 'events' | 'tagName' | 'attributes' | 'cssParts' | 'cssProperties' | 'cssStates' | 'demos' | 'customElement' | 'name' | 'summary' | 'description' | 'superclass' | 'mixins' | 'members' | 'source' | 'deprecated' | 'properties' | undefined"
+              },
+              "default": "'slots'",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getRenderTemplate",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "styles",
+                  "type": {
+                    "text": "CSSResult"
+                  }
+                },
+                {
+                  "name": "className",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "metaData",
+              "type": {
+                "text": "MetaData[] | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "description": "The tag name of the custom element",
+              "attribute": "tag",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateMetaData",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "feature",
+                  "optional": true,
+                  "type": {
+                    "text": "ComponentAPI"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateVisibility",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              }
             }
           ],
           "superclass": {
@@ -548,13 +1845,42 @@
           "status": {
             "name": "experimental",
             "description": ""
-          }
+          },
+          "attributes": [
+            {
+              "name": "component-class",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The name of the component class",
+              "fieldName": "componentName",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              },
+              "propName": "componentClass"
+            },
+            {
+              "name": "tag",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "The tag name of the custom element",
+              "fieldName": "tag",
+              "inheritedFrom": {
+                "name": "WcDoxBase",
+                "module": "src/components/base/dox-base.ts"
+              },
+              "propName": "tag"
+            }
+          ],
+          "modulePath": "src/components/slots/slots.ts"
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "WcSlots",
+          "name": "default",
           "declaration": {
             "name": "WcSlots",
             "module": "src/components/slots/slots.ts"
@@ -562,7 +1888,7 @@
         },
         {
           "kind": "js",
-          "name": "default",
+          "name": "WcSlots",
           "declaration": {
             "name": "WcSlots",
             "module": "src/components/slots/slots.ts"

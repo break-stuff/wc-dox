@@ -1,16 +1,17 @@
-import { getTsProgram, expandTypesPlugin } from 'cem-plugin-expanded-types';
 import { customElementReactWrapperPlugin } from 'custom-element-react-wrappers';
 import { customElementVsCodePlugin } from 'custom-element-vs-code-integration';
 import { customElementJetBrainsPlugin } from 'custom-element-jet-brains-integration';
 import { customElementSolidJsPlugin } from 'custom-element-solidjs-integration';
-import { customElementJsxPlugin } from 'custom-element-jsx-integration';
 import { customElementVuejsPlugin } from 'custom-element-vuejs-integration';
 import { customElementSveltePlugin } from 'custom-element-svelte-integration';
-import { cemInheritancePlugin } from 'custom-elements-manifest-inheritance';
-import { customElementLazyLoaderPlugin } from 'custom-element-lazy-loader';
-import { customJSDocTagsPlugin } from 'cem-plugin-custom-jsdoc-tags';
-import { customEsLintRuleGeneratorPlugin } from 'custom-element-eslint-rule-generator';
 import { cemDeprecatorPlugin } from 'custom-elements-manifest-deprecator';
+import { cemSorterPlugin } from "@wc-toolkit/cem-sorter";
+import { cemInheritancePlugin } from "@wc-toolkit/cem-inheritance";
+import { jsDocTagsPlugin } from "@wc-toolkit/jsdoc-tags";
+import { getTsProgram, typeParserPlugin } from "@wc-toolkit/type-parser";
+import { jsxTypesPlugin } from "@wc-toolkit/jsx-types";
+import { lazyLoaderPlugin } from "@wc-toolkit/lazy-loader";
+
 
 const getTagBase = tagName => tagName.split('-').slice(1).join('-');
 
@@ -22,18 +23,14 @@ export default {
     'src/**/*.test.ts',
     'src/**/*.stories.ts',
     'src/**/*.styles.ts',
-    'src/**/dox-base.ts',
   ],
   /** Enable special handling for litelement */
   litelement: true,
   /** Provide custom plugins */
   plugins: [
-    expandTypesPlugin({
-      hideLogs: true,
-    }),
-    cemInheritancePlugin({
-      hideLogs: true,
-    }),
+    cemSorterPlugin(),
+    typeParserPlugin(),
+    cemInheritancePlugin(),
     cemDeprecatorPlugin({
       hideLogs: true,
     }),
@@ -47,6 +44,7 @@ export default {
     customElementReactWrapperPlugin({
       hideLogs: true,
       outdir: 'react',
+      exclude: ['WcDoxBase'],
       modulePath: (_, tagName) =>
         `../dist/components/${getTagBase(tagName)}/${getTagBase(tagName)}.js`,
     }),
@@ -57,8 +55,7 @@ export default {
       modulePath: (_, tagName) =>
         `../dist/components/${getTagBase(tagName)}/${getTagBase(tagName)}.js`,
     }),
-    customElementJsxPlugin({
-      hideLogs: true,
+    jsxTypesPlugin({
       outdir: 'types',
       modulePath: (_, tagName) =>
         `../dist/components/${getTagBase(tagName)}/${getTagBase(tagName)}.js`,
@@ -77,15 +74,13 @@ export default {
       modulePath: (_, tagName) =>
         `../dist/components/${getTagBase(tagName)}/${getTagBase(tagName)}.js`,
     }),
-    customElementLazyLoaderPlugin({
-      hideLogs: true,
+    lazyLoaderPlugin({
       outdir: 'cdn',
       importPathTemplate: (_, tagName) =>
         `../dist/components/${getTagBase(tagName)}/${getTagBase(tagName)}.js`,
     }),
 
-    customJSDocTagsPlugin({
-      hideLogs: true,
+    jsDocTagsPlugin({
       tags: {
         status: {},
         since: {},
@@ -94,11 +89,6 @@ export default {
           isArray: true,
         },
       },
-    }),
-
-    customEsLintRuleGeneratorPlugin({
-      hideLogs: true,
-      outdir: 'eslint',
     }),
   ],
 
