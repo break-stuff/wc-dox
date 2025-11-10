@@ -18,12 +18,8 @@ export class WcEvents extends WcDoxBase<
 > {
   public constructor() {
     super();
+    this.feature = 'events';
     this.config = config.events;
-  }
-
-  override connectedCallback(): void {
-    super.connectedCallback();
-    this.updateMetaData('events');
   }
 
   override render() {

@@ -22,7 +22,7 @@ export type DoxConfig = {
   props?: PropsElementConfig;
   /** Configures the `wc-slots` component contents */
   slots?: SlotsElementConfig;
-  /** Configures the `wc-states` component contents */
+  /** Configures the `wc-css-states` component contents */
   cssStates?: CssStatesElementConfig;
 };
 

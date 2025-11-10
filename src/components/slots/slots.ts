@@ -18,12 +18,8 @@ export class WcSlots extends WcDoxBase<
 > {
   public constructor() {
     super();
+    this.feature = 'slots';
     this.config = config.slots;
-  }
-
-  override connectedCallback(): void {
-    super.connectedCallback();
-    this.updateMetaData('slots');
   }
 
   override render() {

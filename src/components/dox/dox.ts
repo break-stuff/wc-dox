@@ -34,6 +34,10 @@ export class WcDox extends LitElement {
         component.componentName = this.componentName;
         this.appendChild(component);
       });
+    } else {
+      console.warn(
+        '[wc-dox] Please provide either a "tag" or "component-class" attribute to document a custom element.',
+      );
     }
   }
 
